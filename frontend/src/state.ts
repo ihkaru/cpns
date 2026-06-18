@@ -33,8 +33,8 @@ export interface ExamState {
 
   // Leaderboard state
   leaderboard: any[];
-  currentUserRank: { rank: number; score: number; maxScore: number; passed: boolean; breakdown: any; durationSeconds: number | null } | null;
-  currentUserBest: { score: number; maxScore: number; passed: boolean; breakdown: any; durationSeconds: number | null } | null;
+  currentUserRank: { rank: number; score: number; maxScore: number; passed: boolean; breakdown: any; durationSeconds: number | null; userId?: string } | null;
+  currentUserBest: { score: number; maxScore: number; passed: boolean; breakdown: any; durationSeconds: number | null; userId?: string } | null;
 }
 
 // F7 Params Configuration

@@ -82,6 +82,49 @@
             </div>
           </div>
 
+          <!-- CAT Target Safe Zone Feedback Alert -->
+          <div class="glass-card" style="padding: 16px 20px; margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(18, 24, 38, 0.4); text-align: left;">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <span class="material-icons" :style="{ color: catBestScore >= 400 ? 'var(--success-color)' : 'var(--warning-color)', fontSize: '24px', marginTop: '2px' }">
+                {{ catBestScore >= 400 ? 'check_circle' : 'info' }}
+              </span>
+              <div style="flex-grow: 1;">
+                <div style="font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 4px;">
+                  Zona Aman Target SKD CPNS: 400+ Poin
+                </div>
+                <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.4;">
+                  <span v-if="catBestScore === 0">
+                    Anda belum menyelesaikan Ujian CAT. Mulai simulasi untuk mengukur kesiapan Anda menuju target zona aman **400+**.
+                  </span>
+                  <span v-else-if="catBestScore < 400">
+                    Skor terbaik Anda saat ini adalah **{{ catBestScore }}**. Anda masih butuh **{{ 400 - catBestScore }}** poin lagi untuk mencapai target zona aman kelulusan BKN (**400+**). Semangat, terus tingkatkan latihan!
+                  </span>
+                  <span v-else>
+                    Luar biasa! Skor terbaik Anda (**{{ catBestScore }}**) sudah berada di **Zona Aman (400+)**. Pertahankan konsistensi dan manajemen waktu Anda agar sukses saat tes resmi!
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT Score Trend Line Chart -->
+          <div v-if="catChartData" class="glass-card" style="padding: 20px; margin-bottom: 24px;">
+            <h4 style="margin: 0 0 16px 0; font-size: 14px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 6px;">
+              <span class="material-icons" style="color: var(--primary-color);">show_chart</span>
+              Tren Skor Ujian CAT (10 Sesi Terakhir)
+            </h4>
+            <TrendChart
+              :chart-data="catChartData"
+              line-color="#6366f1"
+              gradient-id="catLineGrad"
+              gradient-start-color="rgba(99, 102, 241, 0.4)"
+              gradient-end-color="rgba(99, 102, 241, 0)"
+              target-label="Target Aman BKN (400)"
+              :y-labels="['550', '275', '0']"
+              value-key="score"
+            />
+          </div>
+
           <div style="margin-bottom: 40px;">
             <div v-if="catHistory.length === 0" class="empty-state-card glass-card" style="padding: 24px; text-align: center; color: var(--text-muted); font-size: 13px;">
               Belum ada riwayat simulasi/latihan CAT SKD.
@@ -135,6 +178,24 @@
               </div>
               <div class="history-stat-subtext" :style="mathLatencyStyle">{{ mathLatencyText }}</div>
             </div>
+          </div>
+
+          <!-- Math Latency Trend Line Chart -->
+          <div v-if="mathChartData" class="glass-card" style="padding: 20px; margin-bottom: 24px;">
+            <h4 style="margin: 0 0 16px 0; font-size: 14px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 6px;">
+              <span class="material-icons" style="color: var(--primary-color);">show_chart</span>
+              Tren Latensi Respons Kalkulasi (10 Sesi Terakhir - Lebih Rendah Lebih Cepat)
+            </h4>
+            <TrendChart
+              :chart-data="mathChartData"
+              line-color="#f97316"
+              gradient-id="mathLineGrad"
+              gradient-start-color="rgba(249, 115, 22, 0.4)"
+              gradient-end-color="rgba(249, 115, 22, 0)"
+              target-label="Target Refleks BKN (1.5s)"
+              :y-labels="['5.0s', '2.5s', '0s']"
+              value-key="latency"
+            />
           </div>
 
           <!-- Cumulative Weak Spots -->
@@ -376,10 +437,33 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { f7 } from 'framework7-vue';
-import { state, startSimulation, selectCategory, logout, leaderboardTop3, coachingRecommendation } from '../store';
+import {
+  state,
+  startSimulation,
+  selectCategory,
+  logout,
+  leaderboardTop3,
+  coachingRecommendation,
+  catHistory,
+  mathHistory,
+  catAverageAccuracy,
+  catAverageTimePerQuestion,
+  catPaceStatusText,
+  catPaceStatusStyle,
+  catBestScore,
+  catChartData,
+  mathAverageAccuracy,
+  mathAverageLatency,
+  mathLatencyText,
+  mathLatencyStyle,
+  mathWeakSpotsSummary,
+  mathChartData,
+  parseBreakdown
+} from '../store';
 import LeaderboardSheet from './LeaderboardSheet.vue';
+import TrendChart from './TrendChart.vue';
 
 const showLeaderboard = ref(false);
 const appVersion = __APP_VERSION__;
@@ -390,170 +474,6 @@ const startMathDrill = () => {
     f7.views.main.router.navigate('/math-drill/');
   }
 };
-
-const parseBreakdown = (item: any) => {
-  if (!item || !item.breakdown) return null;
-  if (typeof item.breakdown === 'string') {
-    try {
-      return JSON.parse(item.breakdown);
-    } catch {
-      return null;
-    }
-  }
-  return item.breakdown;
-};
-
-// Filtered History
-const catHistory = computed(() => {
-  return state.history.filter(item => {
-    const b = parseBreakdown(item);
-    return !b || b.type !== 'math_drill';
-  });
-});
-
-const mathHistory = computed(() => {
-  return state.history.filter(item => {
-    const b = parseBreakdown(item);
-    return b && b.type === 'math_drill';
-  });
-});
-
-// CAT Stats Computeds
-const catAverageAccuracy = computed(() => {
-  if (catHistory.value.length === 0) return 0;
-  let totalScore = 0;
-  let totalMaxScore = 0;
-  catHistory.value.forEach(item => {
-    totalScore += item.score || 0;
-    totalMaxScore += item.maxScore || 0;
-  });
-  if (totalMaxScore === 0) return 0;
-  return Math.round((totalScore / totalMaxScore) * 100);
-});
-
-const catAverageTimePerQuestion = computed(() => {
-  let totalSeconds = 0;
-  let totalQuestions = 0;
-  catHistory.value.forEach(item => {
-    if (item.durationSeconds !== undefined && item.durationSeconds !== null) {
-      totalSeconds += item.durationSeconds;
-      totalQuestions += (item.maxScore || 0) / 5;
-    }
-  });
-  if (totalQuestions === 0) return '- s/soal';
-  const avg = totalSeconds / totalQuestions;
-  return `${avg.toFixed(1)}s/soal`;
-});
-
-const catPaceStatusText = computed(() => {
-  let totalSeconds = 0;
-  let totalQuestions = 0;
-  catHistory.value.forEach(item => {
-    if (item.durationSeconds !== undefined && item.durationSeconds !== null) {
-      totalSeconds += item.durationSeconds;
-      totalQuestions += (item.maxScore || 0) / 5;
-    }
-  });
-  if (totalQuestions === 0) return 'Belum ada data waktu';
-  const avg = totalSeconds / totalQuestions;
-  if (avg <= 54) {
-    return 'Sangat Cepat! (Target BKN <54s)';
-  } else if (avg <= 70) {
-    return 'Cukup Baik (Target BKN <54s)';
-  } else {
-    return 'Perlu Ditingkatkan (>54s/soal)';
-  }
-});
-
-const catPaceStatusStyle = computed(() => {
-  let totalSeconds = 0;
-  let totalQuestions = 0;
-  catHistory.value.forEach(item => {
-    if (item.durationSeconds !== undefined && item.durationSeconds !== null) {
-      totalSeconds += item.durationSeconds;
-      totalQuestions += (item.maxScore || 0) / 5;
-    }
-  });
-  if (totalQuestions === 0) return { color: '#71717a' };
-  const avg = totalSeconds / totalQuestions;
-  if (avg <= 54) {
-    return { color: '#4ade80' };
-  } else if (avg <= 70) {
-    return { color: '#facc15' };
-  } else {
-    return { color: '#f87171' };
-  }
-});
-
-// Math Stats Computeds
-const mathAverageAccuracy = computed(() => {
-  if (mathHistory.value.length === 0) return 0;
-  let totalScore = 0;
-  let totalMaxScore = 0;
-  mathHistory.value.forEach(item => {
-    totalScore += item.score || 0;
-    totalMaxScore += item.maxScore || 0;
-  });
-  if (totalMaxScore === 0) return 0;
-  return Math.round((totalScore / totalMaxScore) * 100);
-});
-
-const mathAverageLatency = computed(() => {
-  let totalLatencyMs = 0;
-  let validCount = 0;
-  mathHistory.value.forEach(item => {
-    const b = parseBreakdown(item);
-    if (b && typeof b.avg_latency_ms === 'number') {
-      totalLatencyMs += b.avg_latency_ms;
-      validCount++;
-    }
-  });
-  if (validCount === 0) return 0;
-  return Math.round(totalLatencyMs / validCount);
-});
-
-const mathLatencyText = computed(() => {
-  const avg = mathAverageLatency.value;
-  if (avg === 0) return 'Belum ada data waktu';
-  const seconds = avg / 1000;
-  if (seconds <= 1.5) {
-    return `Sangat Cepat! (Target <1.5s)`;
-  } else if (seconds <= 2.5) {
-    return `Cukup Baik (Target <1.5s)`;
-  } else {
-    return `Perlu Ditingkatkan (>2.5s)`;
-  }
-});
-
-const mathLatencyStyle = computed(() => {
-  const avg = mathAverageLatency.value;
-  if (avg === 0) return { color: '#71717a' };
-  const seconds = avg / 1000;
-  if (seconds <= 1.5) {
-    return { color: '#4ade80' };
-  } else if (seconds <= 2.5) {
-    return { color: '#facc15' };
-  } else {
-    return { color: '#f87171' };
-  }
-});
-
-// Cumulative Weak Spots Summary
-const mathWeakSpotsSummary = computed(() => {
-  const counts: Record<string, number> = {};
-  mathHistory.value.forEach(item => {
-    const b = parseBreakdown(item);
-    if (b && Array.isArray(b.weak_spots)) {
-      b.weak_spots.forEach((spot: string) => {
-        counts[spot] = (counts[spot] || 0) + 1;
-      });
-    }
-  });
-  return Object.entries(counts)
-    .map(([spot, count]) => ({ spot, count }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 5);
-});
 
 const formatDuration = (seconds?: number | null) => {
   if (seconds === undefined || seconds === null) return '--:--';
@@ -570,70 +490,3 @@ const formatPace = (seconds?: number | null, maxScore?: number) => {
   return `${pace.toFixed(1)}s/soal`;
 };
 </script>
-
-<style scoped>
-.app-version-section {
-  text-align: center;
-  margin-top: 40px;
-  padding-bottom: 24px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.1);
-  padding-top: 24px;
-}
-
-.app-version-text {
-  font-size: 12px;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-  font-weight: 600;
-}
-
-.app-download-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 700;
-  transition: var(--transition-smooth);
-}
-
-.app-download-link:hover {
-  opacity: 0.8;
-  text-shadow: 0 0 8px var(--primary-glow);
-}
-
-/* Custom segmented control for Dashboard */
-.segmented-control-custom {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 4px;
-  gap: 4px;
-}
-
-.segmented-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  padding: 10px 4px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.segmented-btn:hover {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.segmented-btn.active {
-  background: var(--primary-color);
-  color: #fff;
-  box-shadow: 0 4px 12px var(--primary-glow);
-}
-</style>

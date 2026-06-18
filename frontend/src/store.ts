@@ -17,7 +17,22 @@ export {
   gaugeTIUPercent,
   gaugeTKPPercent,
   leaderboardTop3,
-  coachingRecommendation
+  coachingRecommendation,
+  catHistory,
+  mathHistory,
+  catAverageAccuracy,
+  catAverageTimePerQuestion,
+  catPaceStatusText,
+  catPaceStatusStyle,
+  catBestScore,
+  catChartData,
+  mathAverageAccuracy,
+  mathAverageLatency,
+  mathLatencyText,
+  mathLatencyStyle,
+  mathWeakSpotsSummary,
+  mathChartData,
+  parseBreakdown
 } from './computeds';
 
 export {

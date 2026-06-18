@@ -224,3 +224,251 @@ export const coachingRecommendation = computed(() => {
     showCoaching: true
   };
 });
+
+export const parseBreakdown = (item: any) => {
+  if (!item || !item.breakdown) return null;
+  if (typeof item.breakdown === 'string') {
+    try {
+      return JSON.parse(item.breakdown);
+    } catch {
+      return null;
+    }
+  }
+  return item.breakdown;
+};
+
+// Filtered History
+export const catHistory = computed(() => {
+  return state.history.filter(item => {
+    const b = parseBreakdown(item);
+    return !b || b.type !== 'math_drill';
+  });
+});
+
+export const mathHistory = computed(() => {
+  return state.history.filter(item => {
+    const b = parseBreakdown(item);
+    return b && b.type === 'math_drill';
+  });
+});
+
+// CAT Stats Computeds
+export const catAverageAccuracy = computed(() => {
+  if (catHistory.value.length === 0) return 0;
+  let totalScore = 0;
+  let totalMaxScore = 0;
+  catHistory.value.forEach(item => {
+    totalScore += item.score || 0;
+    totalMaxScore += item.maxScore || 0;
+  });
+  if (totalMaxScore === 0) return 0;
+  return Math.round((totalScore / totalMaxScore) * 100);
+});
+
+export const catAverageTimePerQuestion = computed(() => {
+  let totalSeconds = 0;
+  let totalQuestions = 0;
+  catHistory.value.forEach(item => {
+    if (item.durationSeconds !== undefined && item.durationSeconds !== null) {
+      totalSeconds += item.durationSeconds;
+      totalQuestions += (item.maxScore || 0) / 5;
+    }
+  });
+  if (totalQuestions === 0) return '- s/soal';
+  const avg = totalSeconds / totalQuestions;
+  return `${avg.toFixed(1)}s/soal`;
+});
+
+export const catPaceStatusText = computed(() => {
+  let totalSeconds = 0;
+  let totalQuestions = 0;
+  catHistory.value.forEach(item => {
+    if (item.durationSeconds !== undefined && item.durationSeconds !== null) {
+      totalSeconds += item.durationSeconds;
+      totalQuestions += (item.maxScore || 0) / 5;
+    }
+  });
+  if (totalQuestions === 0) return 'Belum ada data waktu';
+  const avg = totalSeconds / totalQuestions;
+  if (avg <= 54) {
+    return 'Sangat Cepat! (Target BKN <54s)';
+  } else if (avg <= 70) {
+    return 'Cukup Baik (Target BKN <54s)';
+  } else {
+    return 'Perlu Ditingkatkan (>54s/soal)';
+  }
+});
+
+export const catPaceStatusStyle = computed(() => {
+  let totalSeconds = 0;
+  let totalQuestions = 0;
+  catHistory.value.forEach(item => {
+    if (item.durationSeconds !== undefined && item.durationSeconds !== null) {
+      totalSeconds += item.durationSeconds;
+      totalQuestions += (item.maxScore || 0) / 5;
+    }
+  });
+  if (totalQuestions === 0) return { color: '#71717a' };
+  const avg = totalSeconds / totalQuestions;
+  if (avg <= 54) {
+    return { color: '#4ade80' };
+  } else if (avg <= 70) {
+    return { color: '#facc15' };
+  } else {
+    return { color: '#f87171' };
+  }
+});
+
+// Best Score for CAT
+export const catBestScore = computed(() => {
+  if (catHistory.value.length === 0) return 0;
+  return Math.max(...catHistory.value.map(item => item.score || 0));
+});
+
+// CAT Score Trend Chart Data
+export const catChartData = computed(() => {
+  const lastSessions = [...catHistory.value].reverse().slice(-10);
+  if (lastSessions.length === 0) return null;
+
+  const width = 500;
+  const height = 150;
+  const paddingLeft = 40;
+  const paddingRight = 20;
+  const paddingTop = 20;
+  const paddingBottom = 30;
+
+  const chartWidth = width - paddingLeft - paddingRight;
+  const chartHeight = height - paddingTop - paddingBottom;
+
+  const minVal = 0;
+  const maxVal = 550;
+
+  const points = lastSessions.map((session, idx) => {
+    const x = paddingLeft + (lastSessions.length > 1 ? (idx / (lastSessions.length - 1)) * chartWidth : chartWidth / 2);
+    const scoreVal = session.score || 0;
+    const y = paddingTop + chartHeight - ((scoreVal - minVal) / (maxVal - minVal)) * chartHeight;
+    return { x, y, score: scoreVal, date: session.date.split(',')[0] };
+  });
+
+  let linePath = '';
+  let areaPath = '';
+  if (points.length > 0) {
+    linePath = `M ${points[0].x} ${points[0].y} ` + points.slice(1).map(p => `L ${p.x} ${p.y}`).join(' ');
+    const bottomY = paddingTop + chartHeight;
+    areaPath = `${linePath} L ${points[points.length - 1].x} ${bottomY} L ${points[0].x} ${bottomY} Z`;
+  }
+
+  const targetY = paddingTop + chartHeight - ((400 - minVal) / (maxVal - minVal)) * chartHeight;
+
+  return { points, linePath, areaPath, targetY, height, width, paddingLeft, paddingTop, chartWidth, chartHeight };
+});
+
+// Math Stats Computeds
+export const mathAverageAccuracy = computed(() => {
+  if (mathHistory.value.length === 0) return 0;
+  let totalScore = 0;
+  let totalMaxScore = 0;
+  mathHistory.value.forEach(item => {
+    totalScore += item.score || 0;
+    totalMaxScore += item.maxScore || 0;
+  });
+  if (totalMaxScore === 0) return 0;
+  return Math.round((totalScore / totalMaxScore) * 100);
+});
+
+export const mathAverageLatency = computed(() => {
+  let totalLatencyMs = 0;
+  let validCount = 0;
+  mathHistory.value.forEach(item => {
+    const b = parseBreakdown(item);
+    if (b && typeof b.avg_latency_ms === 'number') {
+      totalLatencyMs += b.avg_latency_ms;
+      validCount++;
+    }
+  });
+  if (validCount === 0) return 0;
+  return Math.round(totalLatencyMs / validCount);
+});
+
+export const mathLatencyText = computed(() => {
+  const avg = mathAverageLatency.value;
+  if (avg === 0) return 'Belum ada data waktu';
+  const seconds = avg / 1000;
+  if (seconds <= 1.5) {
+    return `Sangat Cepat! (Target <1.5s)`;
+  } else if (seconds <= 2.5) {
+    return `Cukup Baik (Target <1.5s)`;
+  } else {
+    return `Perlu Ditingkatkan (>1.5s)`;
+  }
+});
+
+export const mathLatencyStyle = computed(() => {
+  const avg = mathAverageLatency.value;
+  if (avg === 0) return { color: '#71717a' };
+  const seconds = avg / 1000;
+  if (seconds <= 1.5) {
+    return { color: '#4ade80' };
+  } else if (seconds <= 2.5) {
+    return { color: '#facc15' };
+  } else {
+    return { color: '#f87171' };
+  }
+});
+
+export const mathWeakSpotsSummary = computed(() => {
+  const map: Record<string, number> = {};
+  mathHistory.value.forEach(item => {
+    const b = parseBreakdown(item);
+    if (b && b.weak_spots) {
+      Object.keys(b.weak_spots).forEach(spot => {
+        map[spot] = (map[spot] || 0) + (b.weak_spots[spot] || 0);
+      });
+    }
+  });
+  return Object.keys(map)
+    .map(spot => ({ spot, count: map[spot] }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 5);
+});
+
+// Math Latency Trend Chart Data
+export const mathChartData = computed(() => {
+  const lastSessions = [...mathHistory.value].reverse().slice(-10);
+  if (lastSessions.length === 0) return null;
+
+  const width = 500;
+  const height = 150;
+  const paddingLeft = 40;
+  const paddingRight = 20;
+  const paddingTop = 20;
+  const paddingBottom = 30;
+
+  const chartWidth = width - paddingLeft - paddingRight;
+  const chartHeight = height - paddingTop - paddingBottom;
+
+  const minVal = 0;
+  const maxVal = 5000; // 0s to 5s
+
+  const points = lastSessions.map((session, idx) => {
+    const x = paddingLeft + (lastSessions.length > 1 ? (idx / (lastSessions.length - 1)) * chartWidth : chartWidth / 2);
+    const b = parseBreakdown(session);
+    const latencyVal = b?.avg_latency_ms || 0;
+    const clampedVal = Math.min(maxVal, Math.max(minVal, latencyVal));
+    const y = paddingTop + chartHeight - ((clampedVal - minVal) / (maxVal - minVal)) * chartHeight;
+    return { x, y, latency: latencyVal, date: session.date.split(',')[0] };
+  });
+
+  let linePath = '';
+  let areaPath = '';
+  if (points.length > 0) {
+    linePath = `M ${points[0].x} ${points[0].y} ` + points.slice(1).map(p => `L ${p.x} ${p.y}`).join(' ');
+    const bottomY = paddingTop + chartHeight;
+    areaPath = `${linePath} L ${points[points.length - 1].x} ${bottomY} L ${points[0].x} ${bottomY} Z`;
+  }
+
+  const targetY = paddingTop + chartHeight - ((1500 - minVal) / (maxVal - minVal)) * chartHeight;
+
+  return { points, linePath, areaPath, targetY, height, width, paddingLeft, paddingTop, chartWidth, chartHeight };
+});
+
