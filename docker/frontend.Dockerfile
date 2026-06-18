@@ -9,6 +9,10 @@ RUN bun install
 
 COPY . .
 
+# Set API URL build argument so it gets baked into Vite build
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
 RUN bun run build
 
 # Stage 2: Production stage (Nginx)
