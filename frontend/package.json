@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/encrypt-db.js && vite build && node scripts/obfuscate.js",
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -28,6 +28,7 @@
     "@vue/eslint-config-typescript": "^14.8.0",
     "eslint": "^10.5.0",
     "eslint-plugin-vue": "^10.9.2",
+    "javascript-obfuscator": "^5.4.3",
     "typescript": "^6.0.3",
     "vite": "^8.0.12",
     "vue-tsc": "^3.3.5"

@@ -12,6 +12,22 @@ use Illuminate\Http\JsonResponse;
 class BankSoalController extends Controller
 {
     /**
+     * Shared key for payload encryption. Must match frontend decryption key.
+     */
+    private const ENCRYPTION_KEY = 'AksaraCATSecureKey2026!#$';
+
+    /**
+     * Encrypt string payload using AES-256-CBC.
+     */
+    private static function encryptPayload(string $data): string
+    {
+        $key = hash('sha256', self::ENCRYPTION_KEY, true);
+        $iv = openssl_random_pseudo_bytes(16);
+        $ciphertext = openssl_encrypt($data, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+        return base64_encode($iv . $ciphertext);
+    }
+
+    /**
      * Get all questions, optionally filtered by category.
      */
     public function index(Request $request): JsonResponse
@@ -25,7 +41,9 @@ class BankSoalController extends Controller
 
         $soals = $query->orderBy('id')->get();
 
-        return response()->json($soals);
+        return response()->json([
+            'payload' => self::encryptPayload(json_encode($soals))
+        ]);
     }
 
     /**
@@ -58,9 +76,13 @@ class BankSoalController extends Controller
 
         $questions = $packet->bankSoals()->orderBy('id')->get();
 
-        return response()->json([
+        $data = [
             'packet' => $packet,
             'questions' => $questions
+        ];
+
+        return response()->json([
+            'payload' => self::encryptPayload(json_encode($data))
         ]);
     }
 }

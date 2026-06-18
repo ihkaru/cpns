@@ -1,5 +1,6 @@
 import { f7 } from 'framework7-vue';
 import { state } from '../state';
+import { decryptData } from '../utils/crypto';
 
 // Timer Interval Reference local to this action module
 let timerInterval: any = null;
@@ -34,14 +35,26 @@ export const loadQuestionsData = async () => {
   try {
     const response = await fetch(`${apiUrl}/api/soal`);
     if (!response.ok) throw new Error('API request failed');
-    state.allQuestions = await response.json();
+    const resData = await response.json();
+    if (resData.payload) {
+      const decryptedText = await decryptData(resData.payload);
+      state.allQuestions = JSON.parse(decryptedText);
+    } else {
+      state.allQuestions = resData;
+    }
     state.isOffline = false;
   } catch (error) {
     console.warn('API error, falling back to local json:', error);
     state.isOffline = true;
     try {
       const response = await fetch('bank_soal_cpns.json');
-      state.allQuestions = await response.json();
+      const resData = await response.json();
+      if (resData.payload) {
+        const decryptedText = await decryptData(resData.payload);
+        state.allQuestions = JSON.parse(decryptedText);
+      } else {
+        state.allQuestions = resData;
+      }
     } catch (localError) {
       console.error('Local backup failed too:', localError);
     }
@@ -126,8 +139,13 @@ export const startPacketPractice = async (packet: any) => {
     const response = await fetch(`${apiUrl}/api/packets/${packet.id}/soal`);
     if (!response.ok) throw new Error('Failed to fetch packet questions');
     
-    const data = await response.json();
-    const rawSoals = data.questions || [];
+    const resData = await response.json();
+    let questionsData = resData;
+    if (resData.payload) {
+      const decryptedText = await decryptData(resData.payload);
+      questionsData = JSON.parse(decryptedText);
+    }
+    const rawSoals = questionsData.questions || [];
 
     rawSoals.forEach((q: any) => {
       q.category = q.kategori ? q.kategori.toUpperCase() : packet.kategori.toUpperCase();
