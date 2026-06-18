@@ -12,7 +12,7 @@
         <div class="logo-title gradient-text">AksaraCAT</div>
       </f7-nav-title>
       <f7-nav-right>
-        <div class="badge-row" style="margin-right: 12px;">
+        <div class="badge-row" style="margin-right: 12px; display: flex; align-items: center; gap: 12px;">
           <!-- Sticky Timer Countdown for Simulation -->
           <span class="custom-badge badge-error" style="font-family: monospace; font-size: 14px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">
             <span class="material-icons" style="font-size: 16px;">schedule</span>
@@ -20,6 +20,11 @@
           </span>
           <span v-if="state.isOffline" class="custom-badge badge-warning">Offline Mode</span>
           <span v-else class="custom-badge badge-success">Online</span>
+
+          <!-- Mobile Nav Trigger Button -->
+          <f7-link class="nav-action-btn-mobile" @click="showMobileNav = true">
+            <span class="material-icons">grid_on</span>
+          </f7-link>
         </div>
       </f7-nav-right>
     </f7-navbar>
@@ -124,10 +129,52 @@
         </div>
       </div>
     </div>
+
+    <!-- Mobile Sheet Modal Navigation (BKN style drawer) -->
+    <f7-sheet
+      v-model:opened="showMobileNav"
+      class="mobile-nav-sheet"
+      swipe-to-close
+      backdrop
+    >
+      <div class="sheet-header-custom">
+        <div class="sheet-title-custom">
+          <span class="material-icons" style="color: var(--primary-color);">grid_on</span>
+          Lembar Jawaban ({{ state.currentQuestions.length }} Soal)
+        </div>
+        <button class="sheet-close-btn" @click="showMobileNav = false">Tutup</button>
+      </div>
+      <div class="sheet-body-custom">
+        <!-- Mobile Timer inside Sheet -->
+        <div :class="['text-center', 'font-bold', state.timeLeft < 300 ? 'color-red timer-critical' : 'color-indigo']" style="margin-bottom: 16px; font-variant-numeric: tabular-nums; font-size: 18px; font-weight: 800; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+          <span class="material-icons" style="font-size: 18px;">schedule</span>
+          Sisa Waktu: {{ formatTime(state.timeLeft) }}
+        </div>
+        <div class="sheet-answer-grid">
+          <button
+            v-for="(q, idx) in state.currentQuestions"
+            :key="idx"
+            :class="[
+              'grid-button',
+              state.currentQuestionIndex === idx ? 'active' : '',
+              isFlagged(idx) ? 'flagged' : '',
+              isAnswered(idx) && !isFlagged(idx) ? 'answered' : ''
+            ]"
+            @click="handleMobileJump(idx)"
+          >
+            {{ idx + 1 }}
+          </button>
+        </div>
+        <f7-button fill large class="gradient-bg" @click="confirmSubmitMobile">
+          Submit Jawaban Ujian
+        </f7-button>
+      </div>
+    </f7-sheet>
   </f7-page>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { 
   state, 
   currentQuestion, 
@@ -142,11 +189,23 @@ import {
   exitToMenu
 } from '../store';
 
+const showMobileNav = ref(false);
+
 const isFlagged = (idx: number): boolean => !!state.flaggedQuestions[idx];
 
 const isAnswered = (idx: number): boolean => {
   const q: any = state.currentQuestions[idx];
   return q ? !!state.userAnswers[q.id] : false;
+};
+
+const handleMobileJump = (idx: number) => {
+  jumpToQuestion(idx);
+  showMobileNav.value = false;
+};
+
+const confirmSubmitMobile = () => {
+  showMobileNav.value = false;
+  confirmSubmit();
 };
 </script>
 

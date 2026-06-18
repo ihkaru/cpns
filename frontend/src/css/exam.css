@@ -11,7 +11,7 @@
     grid-template-columns: 1fr;
   }
   .exam-sidebar {
-    order: -1; /* Sidebar with countdown on top for mobile */
+    display: none !important;
   }
 }
 
@@ -416,4 +416,74 @@
 
 .results-table tr:last-child td {
   border-bottom: none;
+}
+
+/* Custom mobile sheet modal for navigation grid */
+.mobile-nav-sheet {
+  background: #0d1220 !important;
+  border-top: 1px solid var(--surface-border) !important;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+  height: 400px !important;
+}
+
+.sheet-header-custom {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sheet-title-custom {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sheet-close-btn {
+  color: var(--primary-color) !important;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.sheet-body-custom {
+  padding: 20px;
+  height: calc(100% - 54px);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.sheet-answer-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 480px) {
+  .sheet-answer-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Navbar action buttons for mobile */
+.nav-action-btn-mobile {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-action-btn-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+  }
 }
