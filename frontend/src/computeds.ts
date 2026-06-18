@@ -418,7 +418,9 @@ export const mathLatencyStyle = computed(() => {
 
 export const mathWeakSpotsSummary = computed(() => {
   const map: Record<string, number> = {};
-  mathHistory.value.forEach(item => {
+  // Only analyze the 5 most recent sessions to keep weak spots relevant and action-oriented
+  const recentHistory = mathHistory.value.slice(0, 5);
+  recentHistory.forEach(item => {
     const b = parseBreakdown(item);
     if (b && b.weak_spots) {
       if (Array.isArray(b.weak_spots)) {
