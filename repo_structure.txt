@@ -10,8 +10,8 @@
 │   │   │   └── Controllers/
 │   │   │       ├── Api/
 │   │   │       │   ├── AuthController.php (130 lines)
-│   │   │       │   ├── BankSoalController.php (66 lines)
-│   │   │       │   └── HistoryController.php (154 lines)
+│   │   │       │   ├── BankSoalController.php (88 lines)
+│   │   │       │   └── HistoryController.php (153 lines)
 │   │   │       └── Controller.php (8 lines)
 │   │   ├── Models/
 │   │   │   ├── BankSoal.php (15 lines)
@@ -39,6 +39,7 @@
 │   │   ├── session.php (233 lines)
 │   │   └── tinker.php (63 lines)
 │   ├── database/
+│   │   ├── data/
 │   │   ├── factories/
 │   │   │   └── UserFactory.php (45 lines)
 │   │   ├── migrations/
@@ -54,7 +55,7 @@
 │   │   │   ├── 2026_06_18_083500_create_user_histories_table.php (33 lines)
 │   │   │   └── 2026_06_18_091150_add_duration_seconds_to_user_histories_table.php (28 lines)
 │   │   ├── seeders/
-│   │   │   ├── BankSoalSeeder.php (195 lines)
+│   │   │   ├── BankSoalSeeder.php (202 lines)
 │   │   │   └── DatabaseSeeder.php (27 lines)
 │   │   ├── .gitignore (1 lines)
 │   │   └── database.sqlite (0 lines)
@@ -102,6 +103,7 @@
 │   ├── .gitattributes (11 lines)
 │   ├── .gitignore (27 lines)
 │   ├── .npmrc (2 lines)
+│   ├── Dockerfile (49 lines)
 │   ├── README.md (58 lines)
 │   ├── artisan (18 lines)
 │   ├── composer.json (88 lines)
@@ -109,57 +111,182 @@
 │   ├── package.json (16 lines)
 │   ├── phpunit.xml (36 lines)
 │   └── vite.config.js (24 lines)
-├── docker/
-│   ├── backend.Dockerfile (39 lines)
-│   └── frontend.Dockerfile (30 lines)
+├── docs/
+│   └── GOOGLE_PLAY_SETUP.md (90 lines)
 ├── frontend/
+│   ├── android/
+│   │   ├── app/
+│   │   │   ├── build/
+│   │   │   │   └── .npmkeep (0 lines)
+│   │   │   ├── src/
+│   │   │   │   ├── androidTest/
+│   │   │   │   │   └── java/
+│   │   │   │   │       └── com/
+│   │   │   │   │           └── getcapacitor/
+│   │   │   │   │               └── myapp/
+│   │   │   │   │                   └── ExampleInstrumentedTest.java (26 lines)
+│   │   │   │   ├── main/
+│   │   │   │   │   ├── assets/
+│   │   │   │   │   │   ├── public/
+│   │   │   │   │   │   │   ├── assets/
+│   │   │   │   │   │   │   │   ├── index-CBIF9U6c.js (207 lines)
+│   │   │   │   │   │   │   │   ├── index-DKB5KW-J.css (1 lines)
+│   │   │   │   │   │   │   │   └── web-DhKjP13I.js (1 lines)
+│   │   │   │   │   │   │   ├── cordova.js (0 lines)
+│   │   │   │   │   │   │   ├── cordova_plugins.js (0 lines)
+│   │   │   │   │   │   │   ├── index.html (45 lines)
+│   │   │   │   │   │   │   ├── manifest.json (25 lines)
+│   │   │   │   │   │   │   └── sw.js (84 lines)
+│   │   │   │   │   │   ├── capacitor.config.json (5 lines)
+│   │   │   │   │   │   └── capacitor.plugins.json (6 lines)
+│   │   │   │   │   ├── java/
+│   │   │   │   │   │   └── com/
+│   │   │   │   │   │       └── aksaracat/
+│   │   │   │   │   │           └── app/
+│   │   │   │   │   │               └── MainActivity.java (5 lines)
+│   │   │   │   │   ├── res/
+│   │   │   │   │   │   ├── drawable/
+│   │   │   │   │   │   │   └── ic_launcher_background.xml (170 lines)
+│   │   │   │   │   │   ├── drawable-land-hdpi/
+│   │   │   │   │   │   ├── drawable-land-ldpi/
+│   │   │   │   │   │   ├── drawable-land-mdpi/
+│   │   │   │   │   │   ├── drawable-land-night-hdpi/
+│   │   │   │   │   │   ├── drawable-land-night-ldpi/
+│   │   │   │   │   │   ├── drawable-land-night-mdpi/
+│   │   │   │   │   │   ├── drawable-land-night-xhdpi/
+│   │   │   │   │   │   ├── drawable-land-night-xxhdpi/
+│   │   │   │   │   │   ├── drawable-land-night-xxxhdpi/
+│   │   │   │   │   │   ├── drawable-land-xhdpi/
+│   │   │   │   │   │   ├── drawable-land-xxhdpi/
+│   │   │   │   │   │   ├── drawable-land-xxxhdpi/
+│   │   │   │   │   │   ├── drawable-night/
+│   │   │   │   │   │   ├── drawable-port-hdpi/
+│   │   │   │   │   │   ├── drawable-port-ldpi/
+│   │   │   │   │   │   ├── drawable-port-mdpi/
+│   │   │   │   │   │   ├── drawable-port-night-hdpi/
+│   │   │   │   │   │   ├── drawable-port-night-ldpi/
+│   │   │   │   │   │   ├── drawable-port-night-mdpi/
+│   │   │   │   │   │   ├── drawable-port-night-xhdpi/
+│   │   │   │   │   │   ├── drawable-port-night-xxhdpi/
+│   │   │   │   │   │   ├── drawable-port-night-xxxhdpi/
+│   │   │   │   │   │   ├── drawable-port-xhdpi/
+│   │   │   │   │   │   ├── drawable-port-xxhdpi/
+│   │   │   │   │   │   ├── drawable-port-xxxhdpi/
+│   │   │   │   │   │   ├── drawable-v24/
+│   │   │   │   │   │   │   └── ic_launcher_foreground.xml (34 lines)
+│   │   │   │   │   │   ├── layout/
+│   │   │   │   │   │   │   └── activity_main.xml (12 lines)
+│   │   │   │   │   │   ├── mipmap-anydpi-v26/
+│   │   │   │   │   │   │   ├── ic_launcher.xml (9 lines)
+│   │   │   │   │   │   │   └── ic_launcher_round.xml (9 lines)
+│   │   │   │   │   │   ├── mipmap-hdpi/
+│   │   │   │   │   │   ├── mipmap-ldpi/
+│   │   │   │   │   │   ├── mipmap-mdpi/
+│   │   │   │   │   │   ├── mipmap-xhdpi/
+│   │   │   │   │   │   ├── mipmap-xxhdpi/
+│   │   │   │   │   │   ├── mipmap-xxxhdpi/
+│   │   │   │   │   │   ├── values/
+│   │   │   │   │   │   │   ├── ic_launcher_background.xml (4 lines)
+│   │   │   │   │   │   │   ├── strings.xml (7 lines)
+│   │   │   │   │   │   │   └── styles.xml (22 lines)
+│   │   │   │   │   │   └── xml/
+│   │   │   │   │   │       ├── config.xml (6 lines)
+│   │   │   │   │   │       └── file_paths.xml (5 lines)
+│   │   │   │   │   └── AndroidManifest.xml (35 lines)
+│   │   │   │   └── test/
+│   │   │   │       └── java/
+│   │   │   │           └── com/
+│   │   │   │               └── getcapacitor/
+│   │   │   │                   └── myapp/
+│   │   │   │                       └── ExampleUnitTest.java (18 lines)
+│   │   │   ├── .gitignore (2 lines)
+│   │   │   ├── build.gradle (54 lines)
+│   │   │   ├── capacitor.build.gradle (19 lines)
+│   │   │   └── proguard-rules.pro (21 lines)
+│   │   ├── capacitor-cordova-android-plugins/
+│   │   │   ├── src/
+│   │   │   │   └── main/
+│   │   │   │       ├── java/
+│   │   │   │       │   └── .gitkeep (0 lines)
+│   │   │   │       ├── res/
+│   │   │   │       │   └── .gitkeep (1 lines)
+│   │   │   │       └── AndroidManifest.xml (8 lines)
+│   │   │   ├── build.gradle (59 lines)
+│   │   │   └── cordova.variables.gradle (7 lines)
+│   │   ├── gradle/
+│   │   │   └── wrapper/
+│   │   │       ├── gradle-wrapper.jar (318 lines)
+│   │   │       └── gradle-wrapper.properties (7 lines)
+│   │   ├── .gitignore (101 lines)
+│   │   ├── build.gradle (29 lines)
+│   │   ├── capacitor.settings.gradle (6 lines)
+│   │   ├── gradle.properties (22 lines)
+│   │   ├── gradlew (251 lines)
+│   │   ├── gradlew.bat (94 lines)
+│   │   ├── settings.gradle (5 lines)
+│   │   └── variables.gradle (16 lines)
+│   ├── assets/
 │   ├── public/
 │   │   ├── manifest.json (25 lines)
 │   │   └── sw.js (84 lines)
+│   ├── scripts/
+│   │   ├── encrypt-db.js (44 lines)
+│   │   └── obfuscate.js (52 lines)
 │   ├── src/
 │   │   ├── actions/
-│   │   │   ├── examActions.ts (313 lines)
+│   │   │   ├── examActions.ts (331 lines)
+│   │   │   ├── mathDrillActions.ts (199 lines)
 │   │   │   └── navActions.ts (261 lines)
 │   │   ├── assets/
 │   │   ├── components/
-│   │   │   ├── DashboardView.vue (345 lines)
+│   │   │   ├── DashboardView.vue (639 lines)
 │   │   │   ├── GoogleButton.vue (83 lines)
 │   │   │   ├── LeaderboardSheet.vue (187 lines)
-│   │   │   ├── LoginView.vue (322 lines)
-│   │   │   ├── PracticeView.vue (175 lines)
+│   │   │   ├── LoginView.vue (348 lines)
+│   │   │   ├── MathDrillView.vue (465 lines)
+│   │   │   ├── PracticeView.vue (228 lines)
 │   │   │   ├── ResultsPopup.vue (239 lines)
 │   │   │   ├── ReviewView.vue (165 lines)
-│   │   │   ├── SimulationView.vue (152 lines)
+│   │   │   ├── SimulationView.vue (211 lines)
 │   │   │   └── TopicSelectView.vue (91 lines)
 │   │   ├── composables/
 │   │   │   ├── useBackButton.ts (28 lines)
 │   │   │   └── useHardwareBack.ts (100 lines)
 │   │   ├── css/
-│   │   │   ├── dashboard.css (972 lines)
-│   │   │   ├── exam.css (419 lines)
+│   │   │   ├── dashboard.css (482 lines)
+│   │   │   ├── exam.css (489 lines)
+│   │   │   ├── leaderboard.css (491 lines)
+│   │   │   ├── math-drill.css (580 lines)
 │   │   │   └── variables.css (105 lines)
+│   │   ├── utils/
+│   │   │   └── crypto.ts (76 lines)
 │   │   ├── App.vue (74 lines)
 │   │   ├── computeds.ts (226 lines)
 │   │   ├── main.ts (44 lines)
-│   │   ├── routes.ts (34 lines)
-│   │   ├── state.ts (84 lines)
+│   │   ├── routes.ts (39 lines)
+│   │   ├── state.ts (88 lines)
 │   │   ├── store.ts (52 lines)
-│   │   ├── style.css (3 lines)
-│   │   └── vite-env.d.ts (18 lines)
+│   │   ├── style.css (5 lines)
+│   │   └── vite-env.d.ts (20 lines)
 │   ├── .gitignore (24 lines)
+│   ├── Dockerfile (34 lines)
 │   ├── README.md (5 lines)
-│   ├── eslint.config.js (33 lines)
+│   ├── capacitor.config.ts (9 lines)
+│   ├── eslint.config.js (34 lines)
 │   ├── index.html (44 lines)
-│   ├── package.json (32 lines)
+│   ├── package.json (36 lines)
 │   ├── tsconfig.json (20 lines)
-│   └── vite.config.js (20 lines)
+│   └── vite.config.js (24 lines)
 ├── scripts/
 │   ├── .gitignore (16 lines)
 │   ├── crawl_packets.py (244 lines)
 │   ├── direct_scraper.py (94 lines)
 │   ├── dump_structure.py (121 lines)
 │   ├── fetch_missing.py (84 lines)
+│   ├── generate-release-key.sh (81 lines)
+│   ├── install-hooks.sh (23 lines)
 │   ├── parse_captured.py (368 lines)
+│   ├── pre-commit-check.sh (45 lines)
 │   ├── save_soal.py (74 lines)
 │   ├── setup_emulator.sh (95 lines)
 │   ├── test_ui.py (91 lines)
@@ -174,8 +301,8 @@
 ====================================================
           TOP 5 FILES BY LINE COUNT                 
 ====================================================
-1. frontend/src/css/dashboard.css (972 lines)
-2. frontend/src/css/exam.css (419 lines)
-3. scripts/parse_captured.py (368 lines)
-4. frontend/src/components/DashboardView.vue (345 lines)
-5. frontend/src/components/LoginView.vue (322 lines)
+1. frontend/src/components/DashboardView.vue (639 lines)
+2. frontend/src/css/math-drill.css (580 lines)
+3. frontend/src/css/leaderboard.css (491 lines)
+4. frontend/src/css/exam.css (489 lines)
+5. frontend/src/css/dashboard.css (482 lines)
