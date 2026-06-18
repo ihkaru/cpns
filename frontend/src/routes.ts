@@ -5,6 +5,7 @@ import TopicSelectView from './components/TopicSelectView.vue';
 import PracticeView from './components/PracticeView.vue';
 import SimulationView from './components/SimulationView.vue';
 import ReviewView from './components/ReviewView.vue';
+import MathDrillView from './components/MathDrillView.vue';
 
 export const routes: Router.RouteParameters[] = [
   {
@@ -30,5 +31,9 @@ export const routes: Router.RouteParameters[] = [
   {
     path: '/review/',
     component: ReviewView,
+  },
+  {
+    path: '/math-drill/',
+    component: MathDrillView,
   }
 ];

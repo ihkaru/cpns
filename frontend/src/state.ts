@@ -1,7 +1,7 @@
 import { reactive } from 'vue';
 
 export interface ExamState {
-  screen: 'dashboard' | 'select' | 'latihan' | 'simulasi' | 'review';
+  screen: 'dashboard' | 'select' | 'latihan' | 'simulasi' | 'review' | 'math-drill';
   allQuestions: any[];
   allPackets: any[];
   isOffline: boolean;
