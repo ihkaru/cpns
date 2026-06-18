@@ -8,6 +8,7 @@ export default defineConfigWithVueTs(
       'dist/**',
       'node_modules/**',
       'public/**',
+      'android/**',
       'dev.sh',
       '**/sw.js'
     ]

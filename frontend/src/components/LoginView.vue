@@ -52,6 +52,15 @@
               <span class="material-icons" style="font-size: 18px; margin-right: 6px;">rocket_launch</span>
               Demo Mode (Cepat)
             </button>
+
+            <a 
+              href="https://github.com/ihkaru/cpns/releases/latest" 
+              class="download-apk-link external" 
+              target="_blank"
+            >
+              <span class="material-icons" style="font-size: 16px; margin-right: 6px; color: #a5b4fc;">android</span>
+              Unduh Aplikasi Android (APK)
+            </a>
           </div>
         </div>
 
@@ -306,6 +315,23 @@ const handleDemoLogin = async () => {
 
 .demo-btn:active {
   transform: translateY(0);
+}
+
+.download-apk-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 700;
+  transition: var(--transition-smooth);
+}
+
+.download-apk-link:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--primary-glow);
 }
 
 .login-footer {

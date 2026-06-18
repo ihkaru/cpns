@@ -244,6 +244,19 @@
           </div>
         </div>
       </div>
+
+      <!-- App Version & Update Link (Fini style) -->
+      <div class="app-version-section">
+        <div class="app-version-text">AksaraCAT v{{ appVersion }}</div>
+        <a
+          href="https://github.com/ihkaru/cpns/releases/latest"
+          target="_blank"
+          class="external app-download-link"
+        >
+          <span class="material-icons" style="font-size: 14px; margin-right: 4px; color: #a5b4fc;">android</span>
+          Unduh APK / Cek Update
+        </a>
+      </div>
     </div>
 
     <!-- Leaderboard Sheet Modal overlay -->
@@ -257,6 +270,7 @@ import { state, startSimulation, selectCategory, logout, leaderboardTop3, coachi
 import LeaderboardSheet from './LeaderboardSheet.vue';
 
 const showLeaderboard = ref(false);
+const appVersion = __APP_VERSION__;
 
 const averageAccuracy = computed(() => {
   if (state.history.length === 0) return 0;
@@ -341,5 +355,35 @@ const formatPace = (seconds?: number | null, maxScore?: number) => {
 </script>
 
 <style scoped>
-/* Local scoped style adjustments if needed */
+.app-version-section {
+  text-align: center;
+  margin-top: 40px;
+  padding-bottom: 24px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+}
+
+.app-version-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.app-download-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  transition: var(--transition-smooth);
+}
+
+.app-download-link:hover {
+  opacity: 0.8;
+  text-shadow: 0 0 8px var(--primary-glow);
+}
 </style>
