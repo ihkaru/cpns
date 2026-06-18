@@ -243,7 +243,7 @@
 │   │   │   ├── GoogleButton.vue (83 lines)
 │   │   │   ├── LeaderboardSheet.vue (187 lines)
 │   │   │   ├── LoginView.vue (348 lines)
-│   │   │   ├── MathDrillView.vue (465 lines)
+│   │   │   ├── MathDrillView.vue (560 lines)
 │   │   │   ├── PracticeView.vue (228 lines)
 │   │   │   ├── ResultsPopup.vue (239 lines)
 │   │   │   ├── ReviewView.vue (165 lines)
@@ -256,7 +256,7 @@
 │   │   │   ├── dashboard.css (482 lines)
 │   │   │   ├── exam.css (489 lines)
 │   │   │   ├── leaderboard.css (491 lines)
-│   │   │   ├── math-drill.css (580 lines)
+│   │   │   ├── math-drill.css (687 lines)
 │   │   │   └── variables.css (105 lines)
 │   │   ├── utils/
 │   │   │   └── crypto.ts (76 lines)
@@ -301,8 +301,8 @@
 ====================================================
           TOP 5 FILES BY LINE COUNT                 
 ====================================================
-1. frontend/src/components/DashboardView.vue (639 lines)
-2. frontend/src/css/math-drill.css (580 lines)
-3. frontend/src/css/leaderboard.css (491 lines)
-4. frontend/src/css/exam.css (489 lines)
-5. frontend/src/css/dashboard.css (482 lines)
+1. frontend/src/css/math-drill.css (687 lines)
+2. frontend/src/components/DashboardView.vue (639 lines)
+3. frontend/src/components/MathDrillView.vue (560 lines)
+4. frontend/src/css/leaderboard.css (491 lines)
+5. frontend/src/css/exam.css (489 lines)

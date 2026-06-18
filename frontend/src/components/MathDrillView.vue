@@ -255,7 +255,7 @@
                 <span class="weak-spot-formula">{{ item.question }} = {{ item.correctAnswer }}</span>
                 <span class="weak-spot-details">
                   <span class="weak-spot-badge error" v-if="!item.isCorrect">Salah Jawab</span>
-                  <span class="weak-spot-badge warning" v-else>Respon Lambat ({{ (item.latencyMs / 1000).toFixed(1) }}s)</span>
+                  <span class="weak-spot-badge warning" v-else>Respon Lambat ({{ ((item.latencyMs ?? 0) / 1000).toFixed(1) }}s)</span>
                 </span>
               </div>
             </div>
