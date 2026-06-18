@@ -205,7 +205,7 @@
               Titik Lemah Refleks Kalkulasi
             </h3>
             <p class="weak-spots-desc" style="margin: 0 0 16px 0; font-size: 12px; color: var(--text-muted);">
-              Kombinasi angka yang paling sering salah dijawab atau responnya lambat (>2 detik) secara kumulatif. Ketuk untuk latih ulang kelemahan Anda.
+              Kombinasi angka yang paling sering salah dijawab atau responnya lambat (melebihi target batas waktu kesulitan) secara kumulatif. Ketuk untuk latih ulang kelemahan Anda.
             </p>
             <div class="weak-spots-flex" style="display: flex; flex-wrap: wrap; gap: 8px;">
               <div

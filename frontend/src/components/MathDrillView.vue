@@ -255,7 +255,9 @@
                 <span class="weak-spot-formula">{{ item.question }} = {{ item.correctAnswer }}</span>
                 <span class="weak-spot-details">
                   <span class="weak-spot-badge error" v-if="!item.isCorrect">Salah Jawab</span>
-                  <span class="weak-spot-badge warning" v-else>Respon Lambat ({{ ((item.latencyMs ?? 0) / 1000).toFixed(1) }}s)</span>
+                  <span class="weak-spot-badge warning" v-else>
+                    Lambat ({{ ((item.latencyMs ?? 0) / 1000).toFixed(1) }}s > {{ (getTargetLatencyForFormula(item.question) / 1000).toFixed(1) }}s)
+                  </span>
                 </span>
               </div>
             </div>
@@ -283,6 +285,7 @@ import { ref, computed, onBeforeUnmount } from 'vue';
 import { state } from '../state';
 import { f7 } from 'framework7-vue';
 import { generateMathDrill, submitMathDrillHistory, type MathQuestion } from '../actions/mathDrillActions';
+import { getTargetLatencyForFormula } from '../utils/mathThreshold';
 
 // Phase State
 const phase = ref<'setup' | 'play' | 'result'>('setup');
@@ -369,22 +372,32 @@ const averageLatencyMs = computed(() => {
   return Math.round(sum / answersHistory.value.length);
 });
 
+const sessionTargetLatencyMs = computed(() => {
+  if (questions.value.length === 0) return 1800;
+  const sum = questions.value.reduce((acc, q) => acc + getTargetLatencyForFormula(q.question), 0);
+  return Math.round(sum / questions.value.length);
+});
+
 const latencyStatusText = computed(() => {
   const avg = averageLatencyMs.value;
-  if (avg <= 1500) {
-    return 'Luar Biasa! Refleks Kalkulasi Sangat Cepat (<1.5s)';
-  } else if (avg <= 2500) {
-    return 'Cukup Baik, Targetkan Kecepatan <1.5 Detik per Soal';
+  const target = sessionTargetLatencyMs.value;
+  if (avg === 0) return 'Belum ada data waktu';
+  if (avg <= target) {
+    return `Sangat Cepat! Rerata Kecepatan Memenuhi Target (${(target / 1000).toFixed(2)}s)`;
+  } else if (avg <= target * 1.3) {
+    return `Cukup Baik (Rerata Target: ${(target / 1000).toFixed(2)}s)`;
   } else {
-    return 'Perlu Latihan Intensif, Terlalu Lambat Untuk TIU Ujian CPNS';
+    return `Perlu Latihan Intensif (Rerata Target: ${(target / 1000).toFixed(2)}s)`;
   }
 });
 
 const latencyBarColor = computed(() => {
   const avg = averageLatencyMs.value;
-  if (avg <= 1500) {
+  const target = sessionTargetLatencyMs.value;
+  if (avg === 0) return { background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)' };
+  if (avg <= target) {
     return { background: 'rgba(74, 222, 128, 0.15)', color: 'var(--success-color)' };
-  } else if (avg <= 2500) {
+  } else if (avg <= target * 1.3) {
     return { background: 'rgba(250, 204, 21, 0.15)', color: 'var(--warning-color)' };
   } else {
     return { background: 'rgba(248, 113, 113, 0.15)', color: 'var(--error-color)' };
@@ -392,11 +405,11 @@ const latencyBarColor = computed(() => {
 });
 
 /**
- * Filter questions that user got wrong OR answered too slowly (> 2.0 seconds)
+ * Filter questions that user got wrong OR answered too slowly (exceeding dynamic difficulty threshold)
  */
 const weakSpotsList = computed(() => {
   return answersHistory.value.filter(q => {
-    return !q.isCorrect || (q.latencyMs !== undefined && q.latencyMs > 2000);
+    return !q.isCorrect || (q.latencyMs !== undefined && q.latencyMs > getTargetLatencyForFormula(q.question));
   });
 });
 

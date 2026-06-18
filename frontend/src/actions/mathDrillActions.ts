@@ -8,6 +8,8 @@ export interface MathQuestion {
   userAnswer?: number;
   latencyMs?: number;
   isCorrect?: boolean;
+  op?: 'perkalian' | 'pembagian' | 'penjumlahan' | 'pengurangan';
+  difficulty?: 'easy' | 'medium' | 'hard';
 }
 
 /**
@@ -124,7 +126,9 @@ export const generateMathDrill = (
       id: i + 1,
       question: questionText,
       correctAnswer,
-      choices: generateDistractors(correctAnswer, op, num1, num2)
+      choices: generateDistractors(correctAnswer, op, num1, num2),
+      op,
+      difficulty
     });
   }
 

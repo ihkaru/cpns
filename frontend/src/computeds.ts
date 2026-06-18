@@ -421,9 +421,20 @@ export const mathWeakSpotsSummary = computed(() => {
   mathHistory.value.forEach(item => {
     const b = parseBreakdown(item);
     if (b && b.weak_spots) {
-      Object.keys(b.weak_spots).forEach(spot => {
-        map[spot] = (map[spot] || 0) + (b.weak_spots[spot] || 0);
-      });
+      if (Array.isArray(b.weak_spots)) {
+        b.weak_spots.forEach((spot: string) => {
+          map[spot] = (map[spot] || 0) + 1;
+        });
+      } else {
+        Object.keys(b.weak_spots).forEach(spot => {
+          const val = b.weak_spots[spot];
+          if (typeof val === 'number') {
+            map[spot] = (map[spot] || 0) + val;
+          } else if (typeof val === 'string') {
+            map[val] = (map[val] || 0) + 1;
+          }
+        });
+      }
     }
   });
   return Object.keys(map)
