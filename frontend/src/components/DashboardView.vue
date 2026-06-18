@@ -37,6 +37,61 @@
         </div>
       </div>
 
+      <!-- History Section (Positioned at the top if learning history exists) -->
+      <div v-if="state.history.length > 0">
+        <h3 class="section-title">
+          <span class="material-icons section-title-icon">history</span>
+          Riwayat Hasil Belajar
+        </h3>
+
+        <!-- Aggregated History Stats Grid -->
+        <div class="history-stats-grid">
+          <div class="history-stat-card glass-card accuracy-card">
+            <div class="history-stat-header">
+              <span class="material-icons" style="color: #0d9488;">track_changes</span>
+              <span class="history-stat-title">Akurasi Rata-rata</span>
+            </div>
+            <div class="history-stat-value">{{ averageAccuracy }}%</div>
+            <div class="history-stat-subtext">Dari total {{ state.history.length }} sesi</div>
+          </div>
+          <div class="history-stat-card glass-card speed-card">
+            <div class="history-stat-header">
+              <span class="material-icons" style="color: #ea580c;">speed</span>
+              <span class="history-stat-title">Rata-rata Waktu</span>
+            </div>
+            <div class="history-stat-value">{{ averageTimePerQuestion }}</div>
+            <div class="history-stat-subtext" :style="paceStatusStyle">{{ paceStatusText }}</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+          <div v-for="(item, idx) in state.history" :key="idx" class="history-row glass-card">
+            <div class="history-left">
+              <div class="history-info">
+                <span class="history-title">{{ item.name }}</span>
+                <span class="history-date">{{ item.date }}</span>
+              </div>
+              <div class="history-meta">
+                <span class="meta-item">
+                  <span class="material-icons meta-icon">timer</span>
+                  {{ formatDuration(item.durationSeconds) }}
+                </span>
+                <span class="meta-item">
+                  <span class="material-icons meta-icon">speed</span>
+                  {{ formatPace(item.durationSeconds, item.maxScore) }}
+                </span>
+              </div>
+            </div>
+            <div class="badge-row">
+              <span class="history-points">Skor: {{ item.score }} / {{ item.maxScore }}</span>
+              <span :class="['custom-badge', item.passed ? 'badge-success' : 'badge-error']">
+                {{ item.passed ? 'LOLOS' : 'TIDAK LOLOS' }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Stats Grid -->
       <div class="stats-grid">
         <div class="stat-card twk-stat glass-card">
@@ -187,61 +242,6 @@
           <f7-button outline round class="card-action-btn tkp-btn" @click="selectCategory('TKP')">
             Pilih Paket TKP
           </f7-button>
-        </div>
-      </div>
-
-      <!-- History Section -->
-      <div v-if="state.history.length > 0">
-        <h3 class="section-title">
-          <span class="material-icons section-title-icon">history</span>
-          Riwayat Hasil Belajar
-        </h3>
-
-        <!-- Aggregated History Stats Grid -->
-        <div class="history-stats-grid">
-          <div class="history-stat-card glass-card accuracy-card">
-            <div class="history-stat-header">
-              <span class="material-icons" style="color: #0d9488;">track_changes</span>
-              <span class="history-stat-title">Akurasi Rata-rata</span>
-            </div>
-            <div class="history-stat-value">{{ averageAccuracy }}%</div>
-            <div class="history-stat-subtext">Dari total {{ state.history.length }} sesi</div>
-          </div>
-          <div class="history-stat-card glass-card speed-card">
-            <div class="history-stat-header">
-              <span class="material-icons" style="color: #ea580c;">speed</span>
-              <span class="history-stat-title">Rata-rata Waktu</span>
-            </div>
-            <div class="history-stat-value">{{ averageTimePerQuestion }}</div>
-            <div class="history-stat-subtext" :style="paceStatusStyle">{{ paceStatusText }}</div>
-          </div>
-        </div>
-
-        <div style="margin-bottom: 40px;">
-          <div v-for="(item, idx) in state.history" :key="idx" class="history-row glass-card">
-            <div class="history-left">
-              <div class="history-info">
-                <span class="history-title">{{ item.name }}</span>
-                <span class="history-date">{{ item.date }}</span>
-              </div>
-              <div class="history-meta">
-                <span class="meta-item">
-                  <span class="material-icons meta-icon">timer</span>
-                  {{ formatDuration(item.durationSeconds) }}
-                </span>
-                <span class="meta-item">
-                  <span class="material-icons meta-icon">speed</span>
-                  {{ formatPace(item.durationSeconds, item.maxScore) }}
-                </span>
-              </div>
-            </div>
-            <div class="badge-row">
-              <span class="history-points">Skor: {{ item.score }} / {{ item.maxScore }}</span>
-              <span :class="['custom-badge', item.passed ? 'badge-success' : 'badge-error']">
-                {{ item.passed ? 'LOLOS' : 'TIDAK LOLOS' }}
-              </span>
-            </div>
-          </div>
         </div>
       </div>
 
