@@ -128,12 +128,19 @@
           <div class="card-question-equals">=</div>
         </div>
 
-        <!-- Choices Grid (Multiple Choice Distractors) -->
+        <!-- Choices Grid (Multiple Choice Distractors with UI Feedback) -->
         <div class="choices-grid-layout">
           <button
             v-for="(choice, idx) in currentQuestion.choices"
             :key="idx"
-            class="choice-btn-large glass-card"
+            :class="[
+              'choice-btn-large',
+              'glass-card',
+              showFeedback && choice === currentQuestion.correctAnswer ? 'feedback-correct' : '',
+              showFeedback && selectedChoice === choice && choice !== currentQuestion.correctAnswer ? 'feedback-incorrect' : '',
+              showFeedback ? 'feedback-disabled' : ''
+            ]"
+            :disabled="showFeedback"
             @click="submitAnswer(choice)"
           >
             {{ choice }}
@@ -143,66 +150,128 @@
 
       <!-- 3. RESULTS SUMMARY PHASE -->
       <div v-else-if="phase === 'result'" class="result-container">
-        <!-- Results Score Header Card -->
-        <div class="result-score-card glass-card">
-          <div class="result-trophy-wrapper">
-            <span class="material-icons trophy-icon" :style="{ color: score / count >= 0.9 ? 'var(--warning-color)' : '#94a3b8' }">
-              {{ score / count >= 0.9 ? 'emoji_events' : 'verified' }}
-            </span>
-          </div>
-          <h2 class="result-score-title">Hasil Latihan Refleks</h2>
-          <div class="result-score-badge-row">
-            <span class="score-badge">Akurasi: {{ Math.round((score / count) * 100) }}%</span>
-            <span :class="['custom-badge', score / count >= 0.9 ? 'badge-success' : 'badge-error']">
-              {{ score / count >= 0.9 ? 'MASTERY (LOLOS)' : 'BUTUH LATIHAN' }}
-            </span>
+        <!-- FLIPCARD REVIEW SECTION (Visible when in review mode) -->
+        <div v-if="isReviewMode && incorrectQuestions.length > 0" class="flipcard-review-section glass-card" style="padding: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 12px;">
+            <h3 style="margin: 0; font-size: 16px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 8px;">
+              <span class="material-icons" style="color: var(--primary-color);">style</span>
+              Review Kartu Balik ({{ reviewIndex + 1 }} / {{ incorrectQuestions.length }})
+            </h3>
+            <button @click="isReviewMode = false" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; padding: 4px;">
+              <span class="material-icons">close</span>
+            </button>
           </div>
 
-          <div class="result-stats-row">
-            <div class="result-stat-col">
-              <span class="stat-lbl">Benar</span>
-              <span class="stat-val" style="color: var(--success-color);">{{ score }} / {{ count }}</span>
-            </div>
-            <div class="result-stat-col">
-              <span class="stat-lbl">Rerata Latensi</span>
-              <span class="stat-val" :style="{ color: averageLatencyMs <= 1500 ? 'var(--success-color)' : 'var(--error-color)' }">
-                {{ (averageLatencyMs / 1000).toFixed(2) }}s
-              </span>
+          <!-- Flipcard component -->
+          <div class="flipcard-container" @click="isCardFlipped = !isCardFlipped">
+            <div :class="['flipcard-inner', isCardFlipped ? 'flipped' : '']">
+              <!-- Front Side -->
+              <div class="flipcard-front glass-card">
+                <span class="flipcard-hint">Ketuk untuk melihat jawaban</span>
+                <span class="flipcard-expr">{{ incorrectQuestions[reviewIndex].question }}</span>
+                <span class="flipcard-equals">= ?</span>
+              </div>
+              <!-- Back Side -->
+              <div class="flipcard-back glass-card">
+                <span class="flipcard-hint">Ketuk untuk kembali ke soal</span>
+                <span class="flipcard-expr">{{ incorrectQuestions[reviewIndex].question }}</span>
+                <span class="flipcard-ans">{{ incorrectQuestions[reviewIndex].correctAnswer }}</span>
+              </div>
             </div>
           </div>
-          <div class="latency-status-bar" :style="latencyBarColor">
-            {{ latencyStatusText }}
+
+          <!-- Flipcard actions -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px;">
+            <f7-button outline large :disabled="reviewIndex === 0" @click="prevCard">
+              <span class="material-icons" style="margin-right: 6px;">chevron_left</span>
+              Sebelumnya
+            </f7-button>
+            <f7-button fill large :disabled="reviewIndex === incorrectQuestions.length - 1" @click="nextCard">
+              Lanjut
+              <span class="material-icons" style="margin-left: 6px;">chevron_right</span>
+            </f7-button>
           </div>
+          
+          <f7-button outline large style="margin-top: 12px; border-color: rgba(255, 255, 255, 0.15) !important; color: #fff;" @click="isReviewMode = false">
+            <span class="material-icons" style="margin-right: 6px;">check_circle</span>
+            Selesai Review
+          </f7-button>
         </div>
 
-        <!-- Detected Weak Spots -->
-        <div v-if="weakSpotsList.length > 0" class="weak-spots-card glass-card">
-          <h3 class="weak-spots-title">
-            <span class="material-icons" style="color: var(--error-color); margin-right: 6px;">warning</span>
-            Titik Lemah Terdeteksi (Butuh Perbaikan)
-          </h3>
-          <p class="weak-spots-desc">Daftar perhitungan matematika dasar yang salah dijawab atau membutuhkan respon terlalu lama (&gt; 2 detik).</p>
-          <div class="weak-spots-list">
-            <div v-for="(item, idx) in weakSpotsList" :key="idx" class="weak-spot-row">
-              <span class="weak-spot-formula">{{ item.question }} = {{ item.correctAnswer }}</span>
-              <span class="weak-spot-details">
-                <span class="weak-spot-badge error" v-if="!item.isCorrect">Salah Jawab</span>
-                <span class="weak-spot-badge warning" v-else>Respon Lambat ({{ (item.latencyMs / 1000).toFixed(1) }}s)</span>
+        <!-- STANDARD RESULTS SECTION (Visible when NOT in review mode) -->
+        <div v-else class="results-standard-wrapper" style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+          <!-- Results Score Header Card -->
+          <div class="result-score-card glass-card">
+            <div class="result-trophy-wrapper">
+              <span class="material-icons trophy-icon" :style="{ color: score / count >= 0.9 ? 'var(--warning-color)' : '#94a3b8' }">
+                {{ score / count >= 0.9 ? 'emoji_events' : 'verified' }}
               </span>
             </div>
-          </div>
-        </div>
+            <h2 class="result-score-title">Hasil Latihan Refleks</h2>
+            <div class="result-score-badge-row">
+              <span class="score-badge">Akurasi: {{ Math.round((score / count) * 100) }}%</span>
+              <span :class="['custom-badge', score / count >= 0.9 ? 'badge-success' : 'badge-error']">
+                {{ score / count >= 0.9 ? 'MASTERY (LOLOS)' : 'BUTUH LATIHAN' }}
+              </span>
+            </div>
 
-        <!-- Actions -->
-        <div class="results-actions">
-          <f7-button fill large class="gradient-bg-btn" @click="resetDrill">
-            <span class="material-icons" style="margin-right: 8px;">refresh</span>
-            Latih Lagi
-          </f7-button>
-          <f7-button outline large class="menu-btn-custom" @click="exitToDashboard">
-            <span class="material-icons" style="margin-right: 8px;">dashboard</span>
-            Kembali ke Dashboard
-          </f7-button>
+            <div class="result-stats-row">
+              <div class="result-stat-col">
+                <span class="stat-lbl">Benar</span>
+                <span class="stat-val" style="color: var(--success-color);">{{ score }} / {{ count }}</span>
+              </div>
+              <div class="result-stat-col">
+                <span class="stat-lbl">Rerata Latensi</span>
+                <span class="stat-val" :style="{ color: averageLatencyMs <= 1500 ? 'var(--success-color)' : 'var(--error-color)' }">
+                  {{ (averageLatencyMs / 1000).toFixed(2) }}s
+                </span>
+              </div>
+            </div>
+            <div class="latency-status-bar" :style="latencyBarColor">
+              {{ latencyStatusText }}
+            </div>
+          </div>
+
+          <!-- Flipcard Review Option Button -->
+          <div v-if="incorrectQuestions.length > 0" class="glass-card" style="padding: 20px; text-align: center; border: 1px dashed rgba(99, 102, 241, 0.4);">
+            <p style="margin: 0 0 14px 0; font-size: 13px; color: var(--text-secondary);">
+              Anda memiliki {{ incorrectQuestions.length }} jawaban salah. Gunakan Kartu Balik (*Flipcards*) untuk melatih ingatan Anda.
+            </p>
+            <f7-button fill large style="background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%) !important; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);" @click="startReview">
+              <span class="material-icons" style="margin-right: 8px;">style</span>
+              Buka Review Kartu Balik
+            </f7-button>
+          </div>
+
+          <!-- Detected Weak Spots -->
+          <div v-if="weakSpotsList.length > 0" class="weak-spots-card glass-card">
+            <h3 class="weak-spots-title">
+              <span class="material-icons" style="color: var(--error-color); margin-right: 6px;">warning</span>
+              Titik Lemah Terdeteksi (Butuh Perbaikan)
+            </h3>
+            <p class="weak-spots-desc">Daftar perhitungan matematika dasar yang salah dijawab atau membutuhkan respon terlalu lama (&gt; 2 detik).</p>
+            <div class="weak-spots-list">
+              <div v-for="(item, idx) in weakSpotsList" :key="idx" class="weak-spot-row">
+                <span class="weak-spot-formula">{{ item.question }} = {{ item.correctAnswer }}</span>
+                <span class="weak-spot-details">
+                  <span class="weak-spot-badge error" v-if="!item.isCorrect">Salah Jawab</span>
+                  <span class="weak-spot-badge warning" v-else>Respon Lambat ({{ (item.latencyMs / 1000).toFixed(1) }}s)</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="results-actions">
+            <f7-button fill large class="gradient-bg-btn" @click="resetDrill">
+              <span class="material-icons" style="margin-right: 8px;">refresh</span>
+              Latih Lagi
+            </f7-button>
+            <f7-button outline large class="menu-btn-custom" @click="exitToDashboard">
+              <span class="material-icons" style="margin-right: 8px;">dashboard</span>
+              Kembali ke Dashboard
+            </f7-button>
+          </div>
         </div>
       </div>
     </div>
@@ -231,7 +300,15 @@ const currentIndex = ref<number>(0);
 const score = ref<number>(0);
 const totalDurationMs = ref<number>(0);
 const answersHistory = ref<MathQuestion[]>([]);
-const adaptiveQueue = ref<MathQuestion[]>([]); // Spaced repetition queue for missed questions
+
+// UI Feedback states during gameplay
+const selectedChoice = ref<number | null>(null);
+const showFeedback = ref<boolean>(false);
+
+// Flipcard Review states
+const isReviewMode = ref<boolean>(false);
+const reviewIndex = ref<number>(0);
+const isCardFlipped = ref<boolean>(false);
 
 // Timer states for gameplay
 const currentTimeLeft = ref<number>(0);
@@ -307,6 +384,10 @@ const weakSpotsList = computed(() => {
   });
 });
 
+const incorrectQuestions = computed(() => {
+  return answersHistory.value.filter(q => !q.isCorrect);
+});
+
 // Clean intervals on destroy
 onBeforeUnmount(() => {
   clearInterval(questionTimerInterval);
@@ -343,7 +424,9 @@ const startDrill = () => {
     score.value = 0;
     totalDurationMs.value = 0;
     answersHistory.value = [];
-    adaptiveQueue.value = [];
+    isReviewMode.value = false;
+    reviewIndex.value = 0;
+    isCardFlipped.value = false;
     phase.value = 'play';
     startQuestionTimer();
   } finally {
@@ -368,6 +451,8 @@ const startQuestionTimer = () => {
 };
 
 const submitAnswer = (choice: number) => {
+  if (showFeedback.value) return; // Prevent double clicks during feedback transition
+
   clearInterval(questionTimerInterval);
   const latency = Date.now() - currentStartTime.value;
   totalDurationMs.value += latency;
@@ -382,38 +467,48 @@ const submitAnswer = (choice: number) => {
 
   if (questionObj.isCorrect) {
     score.value++;
-  } else {
-    // Spaced Repetition adaptive learning: queue wrong questions to repeat at the end!
-    adaptiveQueue.value.push({
-      id: questions.value.length + adaptiveQueue.value.length + 1,
-      question: questionObj.question,
-      correctAnswer: questionObj.correctAnswer,
-      choices: questionObj.choices
-    });
   }
 
-  // Go to next question, or process adaptive repetition queue, or finish
-  if (currentIndex.value < questions.value.length - 1) {
-    currentIndex.value++;
-    startQuestionTimer();
-  } else if (adaptiveQueue.value.length > 0) {
-    // Append the adaptive queue to questions list, notify user
-    const addedCount = adaptiveQueue.value.length;
-    f7.toast.create({
-      text: `${addedCount} soal yang salah dimasukkan kembali ke antrean untuk dilatih ulang!`,
-      closeButton: true,
-      destroyOnClose: true,
-      position: 'top',
-      cssClass: 'toast-warning'
-    }).open();
+  // Trigger feedback
+  selectedChoice.value = choice;
+  showFeedback.value = true;
 
-    // Concat queue and clear it
-    questions.value = [...questions.value, ...adaptiveQueue.value];
-    adaptiveQueue.value = [];
-    currentIndex.value++;
-    startQuestionTimer();
-  } else {
-    finishDrill();
+  setTimeout(() => {
+    // Reset feedback states
+    showFeedback.value = false;
+    selectedChoice.value = null;
+
+    // Go to next question, or finish
+    if (currentIndex.value < questions.value.length - 1) {
+      currentIndex.value++;
+      startQuestionTimer();
+    } else {
+      finishDrill();
+    }
+  }, 1000); // 1.0 second delay for feedback display
+};
+
+const startReview = () => {
+  reviewIndex.value = 0;
+  isCardFlipped.value = false;
+  isReviewMode.value = true;
+};
+
+const prevCard = () => {
+  if (reviewIndex.value > 0) {
+    isCardFlipped.value = false;
+    setTimeout(() => {
+      reviewIndex.value--;
+    }, 150);
+  }
+};
+
+const nextCard = () => {
+  if (reviewIndex.value < incorrectQuestions.value.length - 1) {
+    isCardFlipped.value = false;
+    setTimeout(() => {
+      reviewIndex.value++;
+    }, 150);
   }
 };
 
