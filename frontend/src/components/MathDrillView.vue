@@ -1,5 +1,5 @@
 <template>
-  <f7-page name="math-drill" class="math-drill-page" @page:beforein="state.screen = 'math-drill'">
+  <f7-page name="math-drill" class="math-drill-page" @page:beforein="handleBeforeIn">
     <!-- Navbar -->
     <f7-navbar back-link="Kembali">
       <f7-nav-title>
@@ -289,6 +289,22 @@ const phase = ref<'setup' | 'play' | 'result'>('setup');
 
 // Setup form configuration
 const operation = ref<'perkalian' | 'pembagian' | 'penjumlahan' | 'pengurangan' | 'campuran'>('perkalian');
+
+const handleBeforeIn = () => {
+  state.screen = 'math-drill';
+  if (state.mathDrillPreset) {
+    operation.value = state.mathDrillPreset.operation;
+    selectedRanges.value = [...state.mathDrillPreset.selectedRanges];
+    difficulty.value = state.mathDrillPreset.difficulty;
+    count.value = state.mathDrillPreset.count;
+    timeLimit.value = state.mathDrillPreset.timeLimit;
+    
+    if (state.mathDrillPreset.autoStart) {
+      state.mathDrillPreset = null;
+      startDrill();
+    }
+  }
+};
 const selectedRanges = ref<number[]>([2, 3, 4, 5, 6, 7, 8, 9, 10]);
 const difficulty = ref<'easy' | 'medium' | 'hard'>('easy');
 const count = ref<number>(20);

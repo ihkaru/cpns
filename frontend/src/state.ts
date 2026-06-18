@@ -35,6 +35,14 @@ export interface ExamState {
   leaderboard: any[];
   currentUserRank: { rank: number; score: number; maxScore: number; passed: boolean; breakdown: any; durationSeconds: number | null; userId?: string } | null;
   currentUserBest: { score: number; maxScore: number; passed: boolean; breakdown: any; durationSeconds: number | null; userId?: string } | null;
+  mathDrillPreset: {
+    operation: 'perkalian' | 'pembagian' | 'penjumlahan' | 'pengurangan' | 'campuran';
+    selectedRanges: number[];
+    difficulty: 'easy' | 'medium' | 'hard';
+    count: number;
+    timeLimit: number;
+    autoStart: boolean;
+  } | null;
 }
 
 // F7 Params Configuration
@@ -83,6 +91,7 @@ export const state = reactive<ExamState>({
 
   leaderboard: [],
   currentUserRank: null,
-  currentUserBest: null
+  currentUserBest: null,
+  mathDrillPreset: null
 });
 

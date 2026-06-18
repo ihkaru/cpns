@@ -205,12 +205,50 @@
               Titik Lemah Refleks Kalkulasi
             </h3>
             <p class="weak-spots-desc" style="margin: 0 0 16px 0; font-size: 12px; color: var(--text-muted);">
-              Kombinasi angka yang paling sering salah dijawab atau responnya lambat (>2 detik) secara kumulatif.
+              Kombinasi angka yang paling sering salah dijawab atau responnya lambat (>2 detik) secara kumulatif. Ketuk untuk latih ulang kelemahan Anda.
             </p>
             <div class="weak-spots-flex" style="display: flex; flex-wrap: wrap; gap: 8px;">
-              <div v-for="item in mathWeakSpotsSummary" :key="item.spot" class="weak-spot-pill" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 20px; font-size: 13px; color: #f87171; font-weight: 700;">
+              <div
+                v-for="item in mathWeakSpotsSummary"
+                :key="item.spot"
+                class="weak-spot-pill"
+                style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 20px; font-size: 13px; color: #f87171; font-weight: 700; cursor: pointer; transition: var(--transition-smooth);"
+                title="Ketuk untuk latih ulang kelemahan ini"
+                @click="retryWeakSpot(item.spot)"
+                @mouseover="(e) => (e.currentTarget as HTMLElement).style.background = 'rgba(239, 68, 68, 0.2)'"
+                @mouseleave="(e) => (e.currentTarget as HTMLElement).style.background = 'rgba(239, 68, 68, 0.1)'"
+              >
                 <span>{{ item.spot }}</span>
                 <span style="font-size: 11px; background: rgba(239, 68, 68, 0.2); padding: 2px 6px; border-radius: 10px; color: #fff;">{{ item.count }}x</span>
+                <span class="material-icons" style="font-size: 14px; margin-left: 2px; color: rgba(255, 255, 255, 0.6);">play_circle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saran Rekomendasi Latihan -->
+          <div class="glass-card" style="margin-bottom: 24px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(18, 24, 38, 0.3);">
+            <h3 style="margin: 0 0 8px 0; font-size: 15px; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #fff;">
+              <span class="material-icons" style="color: var(--warning-color);">lightbulb</span>
+              Rekomendasi Latihan
+            </h3>
+            <p style="margin: 0 0 16px 0; font-size: 12px; color: var(--text-muted);">
+              Pilih program latihan berikut untuk mengasah bagian yang membutuhkan peningkatan.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+              <div
+                v-for="rec in mathRecommendations"
+                :key="rec.title"
+                class="glass-card"
+                style="padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: var(--transition-smooth); border: 1px solid rgba(255, 255, 255, 0.04); background: rgba(255, 255, 255, 0.01);"
+                @click="startPresetDrill(rec.preset)"
+                @mouseover="(e) => (e.currentTarget as HTMLElement).style.borderColor = 'var(--primary-color)'"
+                @mouseleave="(e) => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.04)'"
+              >
+                <div style="text-align: left;">
+                  <div style="font-size: 13px; font-weight: 800; color: #fff;">{{ rec.title }}</div>
+                  <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">{{ rec.desc }}</div>
+                </div>
+                <span class="material-icons" style="color: var(--primary-color); font-size: 20px;">play_arrow</span>
               </div>
             </div>
           </div>
@@ -437,7 +475,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { f7 } from 'framework7-vue';
 import {
   state,
@@ -474,6 +512,77 @@ const startMathDrill = () => {
     f7.views.main.router.navigate('/math-drill/');
   }
 };
+
+const retryWeakSpot = (spot: string) => {
+  let operation: 'perkalian' | 'pembagian' | 'penjumlahan' | 'pengurangan' = 'perkalian';
+  let ranges: number[] = [];
+  let difficulty: 'easy' | 'medium' | 'hard' = 'easy';
+  
+  if (spot.includes('×') || spot.includes('x')) {
+    operation = 'perkalian';
+    const nums = spot.split(/[×x]/).map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+    ranges = nums.length > 0 ? nums : [3];
+  } else if (spot.includes('÷') || spot.includes('/')) {
+    operation = 'pembagian';
+    const nums = spot.split(/[÷/]/).map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+    ranges = nums.length > 0 ? [nums[1]] : [3];
+  } else if (spot.includes('+')) {
+    operation = 'penjumlahan';
+    const nums = spot.split('+').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+    const maxVal = Math.max(...nums);
+    if (maxVal > 100) difficulty = 'hard';
+    else if (maxVal > 20) difficulty = 'medium';
+    else difficulty = 'easy';
+  } else if (spot.includes('−') || spot.includes('-')) {
+    operation = 'pengurangan';
+    const nums = spot.split(/[−-]/).map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+    const maxVal = Math.max(...nums);
+    if (maxVal > 100) difficulty = 'hard';
+    else if (maxVal > 20) difficulty = 'medium';
+    else difficulty = 'easy';
+  }
+  
+  state.mathDrillPreset = {
+    operation,
+    selectedRanges: ranges,
+    difficulty,
+    count: 10,
+    timeLimit: 0,
+    autoStart: true
+  };
+  
+  startMathDrill();
+};
+
+const startPresetDrill = (preset: any) => {
+  state.mathDrillPreset = preset;
+  startMathDrill();
+};
+
+const mathRecommendations = computed(() => {
+  return [
+    {
+      title: 'Tingkatkan Kecepatan Perkalian (7, 8, 9)',
+      desc: 'Latih perkalian angka besar yang paling sering memicu keterlambatan respons.',
+      preset: { operation: 'perkalian', selectedRanges: [7, 8, 9], difficulty: 'easy', count: 15, timeLimit: 0, autoStart: true }
+    },
+    {
+      title: 'Drill Pembagian Acak (Bawah 10)',
+      desc: 'Pertajam pembagian dasar untuk mempercepat estimasi hasil pecahan di TIU.',
+      preset: { operation: 'pembagian', selectedRanges: [3, 4, 6, 7, 8, 9], difficulty: 'easy', count: 15, timeLimit: 0, autoStart: true }
+    },
+    {
+      title: 'Drill Penjumlahan Sedang (2-Digit)',
+      desc: 'Latih penambahan puluhan cepat tanpa corat-coret kertas cakar.',
+      preset: { operation: 'penjumlahan', selectedRanges: [], difficulty: 'medium', count: 15, timeLimit: 0, autoStart: true }
+    },
+    {
+      title: 'Drill Campuran Kilat (Batas 3s)',
+      desc: 'Program intensif: 20 soal campuran dengan batas waktu ketat 3 detik per soal.',
+      preset: { operation: 'campuran', selectedRanges: [2, 3, 4, 5, 6, 7, 8, 9, 10], difficulty: 'easy', count: 20, timeLimit: 3, autoStart: true }
+    }
+  ];
+});
 
 const formatDuration = (seconds?: number | null) => {
   if (seconds === undefined || seconds === null) return '--:--';
