@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AksaraCAT</string>
+    <string name="title_activity_main">AksaraCAT</string>
+    <string name="package_name">com.aksaracat.app</string>
+    <string name="custom_url_scheme">com.aksaracat.app</string>
+</resources>
