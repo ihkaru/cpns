@@ -1,0 +1,25 @@
+{
+  "name": "AksaraCAT - Ujian CAT CPNS",
+  "short_name": "AksaraCAT",
+  "description": "Aplikasi Latihan Soal Ujian CAT CPNS Modern & Bebas Iklan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0d11",
+  "theme_color": "#0b0d11",
+  "orientation": "any",
+  "categories": ["education", "test-prep"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

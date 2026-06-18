@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL Database
+  db:
+    image: postgres:16-alpine
+    container_name: aksaracat_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cpns_cat
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secretpassword
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # 2. Backend API (Laravel 13)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend.Dockerfile
+    container_name: aksaracat_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/var/www/html
+      - ./scripts:/var/www/scripts
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_KEY: base64:xMhBpxqKzXWpQD1c7Yv8R9B8D5E6F7G8H9I0J1K2L3M=
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: cpns_cat
+      DB_USERNAME: postgres
+      DB_PASSWORD: secretpassword
+      AI_PROVIDER: gemini # default provider untuk laravel/ai
+    depends_on:
+      - db
+
+  # 3. Frontend Dev Server (Bun)
+  frontend:
+    image: oven/bun:1-alpine
+    container_name: aksaracat_frontend
+    restart: unless-stopped
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    command: sh -c "bun install && bun run dev --host"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+    driver: local

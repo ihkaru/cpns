@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Definitions for Gradients -->
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    
+    <!-- Emblem Gradient -->
+    <linearGradient id="emblem-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <!-- Accent Glow Gradient -->
+    <linearGradient id="glow-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Maskable Safe Area Guide (Invisible in Production) -->
+  <!-- <circle cx="256" cy="256" r="204" fill="none" stroke="#334155" stroke-dasharray="10 10" stroke-width="2" /> -->
+
+  <!-- App Background (Required for standalone splash screen) -->
+  <rect width="512" height="512" fill="url(#bg-grad)" rx="112" />
+
+  <!-- Stylized Decorative Background Grid Pattern -->
+  <g opacity="0.05">
+    <path d="M 0,64 L 512,64 M 0,128 L 512,128 M 0,192 L 512,192 M 0,256 L 512,256 M 0,320 L 512,320 M 0,384 L 512,384 M 0,448 L 512,448" stroke="#ffffff" stroke-width="2" />
+    <path d="M 64,0 L 64,512 M 128,0 L 128,512 M 192,0 L 192,512 M 256,0 L 256,512 M 320,0 L 320,512 M 384,0 L 384,512 M 448,0 L 448,512" stroke="#ffffff" stroke-width="2" />
+  </g>
+
+  <!-- Glowing Aura behind emblem -->
+  <circle cx="256" cy="240" r="140" fill="url(#glow-grad)" filter="blur(20px)" opacity="0.8" />
+
+  <!-- Stylized Shield / Book Emblem (Safe zone: all components fit within 340px circle) -->
+  <g transform="translate(136, 120)">
+    <!-- Shield Outline (Glowing Base) -->
+    <path d="M 120,0 L 220,40 C 220,150 120,220 120,220 C 120,220 20,150 20,40 Z" 
+          fill="none" stroke="#2563eb" stroke-width="12" stroke-linejoin="round" opacity="0.3" />
+
+    <!-- Main Shield Fill (Gradients of Blue) -->
+    <path d="M 120,10 L 210,46 C 210,140 120,204 120,204 C 120,204 30,140 30,46 Z" 
+          fill="url(#emblem-grad)" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
+
+    <!-- Stylized Checkmark / Achievement Emblem in Front -->
+    <path d="M 75,100 L 105,130 L 165,70" 
+          fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+          
+    <!-- Star accent on top of shield -->
+    <path d="M 120,38 L 123,47 L 132,47 L 125,53 L 128,62 L 120,56 L 112,62 L 115,53 L 108,47 L 117,47 Z" 
+          fill="#f59e0b" />
+  </g>
+
+  <!-- Stylized App Label -->
+  <text x="256" y="420" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="36" font-weight="900" fill="#ffffff" letter-spacing="4" text-anchor="middle">
+    CPNS
+  </text>
+  
+  <text x="256" y="455" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="14" font-weight="700" fill="#60a5fa" letter-spacing="8" text-anchor="middle" opacity="0.8">
+    SIMULASI CAT
+  </text>
+</svg>

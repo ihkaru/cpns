@@ -1,0 +1,16 @@
+# Raw capture dumps from mitmproxy
+captured/
+
+# Extracted APK/XAPK resource folders
+apk_extracted/
+xapk_extracted/
+
+# Giant application installers
+*.apk
+*.xapk
+
+# Generated SQL assets
+*.sql
+
+# Temporary Android UI window hierarchy dumps
+window_dump.xml

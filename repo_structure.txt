@@ -1,0 +1,181 @@
+====================================================
+             AKSARACAT REPO STRUCTURE               
+====================================================
+├── .github/
+│   └── workflows/
+│       └── build-apk.yml (106 lines)
+├── backend/
+│   ├── app/
+│   │   ├── Http/
+│   │   │   └── Controllers/
+│   │   │       ├── Api/
+│   │   │       │   ├── AuthController.php (130 lines)
+│   │   │       │   ├── BankSoalController.php (66 lines)
+│   │   │       │   └── HistoryController.php (154 lines)
+│   │   │       └── Controller.php (8 lines)
+│   │   ├── Models/
+│   │   │   ├── BankSoal.php (15 lines)
+│   │   │   ├── Packet.php (15 lines)
+│   │   │   ├── User.php (35 lines)
+│   │   │   └── UserHistory.php (32 lines)
+│   │   └── Providers/
+│   │       └── AppServiceProvider.php (24 lines)
+│   ├── bootstrap/
+│   │   ├── app.php (22 lines)
+│   │   └── providers.php (7 lines)
+│   ├── config/
+│   │   ├── ai.php (145 lines)
+│   │   ├── app.php (126 lines)
+│   │   ├── auth.php (117 lines)
+│   │   ├── cache.php (136 lines)
+│   │   ├── cors.php (34 lines)
+│   │   ├── database.php (184 lines)
+│   │   ├── filesystems.php (80 lines)
+│   │   ├── logging.php (132 lines)
+│   │   ├── mail.php (118 lines)
+│   │   ├── queue.php (129 lines)
+│   │   ├── sanctum.php (87 lines)
+│   │   ├── services.php (38 lines)
+│   │   ├── session.php (233 lines)
+│   │   └── tinker.php (63 lines)
+│   ├── database/
+│   │   ├── factories/
+│   │   │   └── UserFactory.php (45 lines)
+│   │   ├── migrations/
+│   │   │   ├── 0001_01_01_000000_create_users_table.php (49 lines)
+│   │   │   ├── 0001_01_01_000001_create_cache_table.php (35 lines)
+│   │   │   ├── 0001_01_01_000002_create_jobs_table.php (59 lines)
+│   │   │   ├── 2026_06_18_071838_create_agent_conversations_table.php (53 lines)
+│   │   │   ├── 2026_06_18_071844_create_bank_soals_table.php (49 lines)
+│   │   │   ├── 2026_06_18_071925_create_personal_access_tokens_table.php (33 lines)
+│   │   │   ├── 2026_06_18_072516_create_packets_table.php (31 lines)
+│   │   │   ├── 2026_06_18_072518_create_packet_bank_soal_table.php (28 lines)
+│   │   │   ├── 2026_06_18_083000_update_users_table_for_google_auth.php (31 lines)
+│   │   │   ├── 2026_06_18_083500_create_user_histories_table.php (33 lines)
+│   │   │   └── 2026_06_18_091150_add_duration_seconds_to_user_histories_table.php (28 lines)
+│   │   ├── seeders/
+│   │   │   ├── BankSoalSeeder.php (195 lines)
+│   │   │   └── DatabaseSeeder.php (27 lines)
+│   │   ├── .gitignore (1 lines)
+│   │   └── database.sqlite (0 lines)
+│   ├── public/
+│   │   ├── avatars/
+│   │   ├── .htaccess (25 lines)
+│   │   ├── index.php (20 lines)
+│   │   └── robots.txt (2 lines)
+│   ├── resources/
+│   │   ├── css/
+│   │   │   └── app.css (9 lines)
+│   │   ├── js/
+│   │   │   └── app.js (1 lines)
+│   │   └── views/
+│   │       ├── errors/
+│   │       │   ├── 401.blade.php (5 lines)
+│   │       │   ├── 402.blade.php (5 lines)
+│   │       │   ├── 403.blade.php (5 lines)
+│   │       │   ├── 404.blade.php (5 lines)
+│   │       │   ├── 419.blade.php (5 lines)
+│   │       │   ├── 429.blade.php (5 lines)
+│   │       │   ├── 500.blade.php (5 lines)
+│   │       │   ├── 503.blade.php (5 lines)
+│   │       │   ├── layout.blade.php (53 lines)
+│   │       │   └── minimal.blade.php (34 lines)
+│   │       └── welcome.blade.php (223 lines)
+│   ├── routes/
+│   │   ├── api.php (24 lines)
+│   │   ├── console.php (8 lines)
+│   │   └── web.php (7 lines)
+│   ├── stubs/
+│   │   ├── agent-middleware.stub (20 lines)
+│   │   ├── agent.stub (44 lines)
+│   │   ├── structured-agent.stub (56 lines)
+│   │   └── tool.stub (37 lines)
+│   ├── tests/
+│   │   ├── Feature/
+│   │   │   └── ExampleTest.php (19 lines)
+│   │   ├── Unit/
+│   │   │   └── ExampleTest.php (16 lines)
+│   │   └── TestCase.php (10 lines)
+│   ├── .editorconfig (18 lines)
+│   ├── .env (76 lines)
+│   ├── .env.example (72 lines)
+│   ├── .gitattributes (11 lines)
+│   ├── .gitignore (27 lines)
+│   ├── .npmrc (2 lines)
+│   ├── README.md (58 lines)
+│   ├── artisan (18 lines)
+│   ├── composer.json (88 lines)
+│   ├── entrypoint.sh (41 lines)
+│   ├── package.json (16 lines)
+│   ├── phpunit.xml (36 lines)
+│   └── vite.config.js (24 lines)
+├── docker/
+│   ├── backend.Dockerfile (39 lines)
+│   └── frontend.Dockerfile (30 lines)
+├── frontend/
+│   ├── public/
+│   │   ├── manifest.json (25 lines)
+│   │   └── sw.js (84 lines)
+│   ├── src/
+│   │   ├── actions/
+│   │   │   ├── examActions.ts (313 lines)
+│   │   │   └── navActions.ts (261 lines)
+│   │   ├── assets/
+│   │   ├── components/
+│   │   │   ├── DashboardView.vue (345 lines)
+│   │   │   ├── GoogleButton.vue (83 lines)
+│   │   │   ├── LeaderboardSheet.vue (187 lines)
+│   │   │   ├── LoginView.vue (322 lines)
+│   │   │   ├── PracticeView.vue (175 lines)
+│   │   │   ├── ResultsPopup.vue (239 lines)
+│   │   │   ├── ReviewView.vue (165 lines)
+│   │   │   ├── SimulationView.vue (152 lines)
+│   │   │   └── TopicSelectView.vue (91 lines)
+│   │   ├── composables/
+│   │   │   ├── useBackButton.ts (28 lines)
+│   │   │   └── useHardwareBack.ts (100 lines)
+│   │   ├── css/
+│   │   │   ├── dashboard.css (972 lines)
+│   │   │   ├── exam.css (419 lines)
+│   │   │   └── variables.css (105 lines)
+│   │   ├── App.vue (74 lines)
+│   │   ├── computeds.ts (226 lines)
+│   │   ├── main.ts (44 lines)
+│   │   ├── routes.ts (34 lines)
+│   │   ├── state.ts (84 lines)
+│   │   ├── store.ts (52 lines)
+│   │   ├── style.css (3 lines)
+│   │   └── vite-env.d.ts (18 lines)
+│   ├── .gitignore (24 lines)
+│   ├── README.md (5 lines)
+│   ├── eslint.config.js (33 lines)
+│   ├── index.html (44 lines)
+│   ├── package.json (32 lines)
+│   ├── tsconfig.json (20 lines)
+│   └── vite.config.js (20 lines)
+├── scripts/
+│   ├── .gitignore (16 lines)
+│   ├── crawl_packets.py (244 lines)
+│   ├── direct_scraper.py (94 lines)
+│   ├── dump_structure.py (121 lines)
+│   ├── fetch_missing.py (84 lines)
+│   ├── parse_captured.py (368 lines)
+│   ├── save_soal.py (74 lines)
+│   ├── setup_emulator.sh (95 lines)
+│   ├── test_ui.py (91 lines)
+│   └── window_dump.xml (1 lines)
+├── .dockerignore (26 lines)
+├── .gitignore (38 lines)
+├── README.md (181 lines)
+├── dev.sh (59 lines)
+├── docker-compose.yml (62 lines)
+└── gemini.md (63 lines)
+
+====================================================
+          TOP 5 FILES BY LINE COUNT                 
+====================================================
+1. frontend/src/css/dashboard.css (972 lines)
+2. frontend/src/css/exam.css (419 lines)
+3. scripts/parse_captured.py (368 lines)
+4. frontend/src/components/DashboardView.vue (345 lines)
+5. frontend/src/components/LoginView.vue (322 lines)

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d0f12">
+  <meta name="description" content="Aplikasi Latihan Soal CPNS CAT 2026 Bebas Iklan dan Offline-First">
+  <title>Simulasi CAT CPNS 2026</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Glassmorphism Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area" id="header-logo">
+        <span class="gradient-text">AksaraCPNS</span>
+      </div>
+      <div class="header-status hidden" id="header-status-area">
+        <span id="exam-timer" class="timer-badge">90:00</span>
+        <span id="exam-progress" class="progress-badge">1 / 110</span>
+      </div>
+      <div class="offline-badge hidden" id="offline-indicator">Offline</div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="app-container">
+    
+    <!-- SECTION 1: DASHBOARD -->
+    <section id="screen-dashboard" class="screen active">
+      <div class="hero-section">
+        <h1 class="hero-title">Siap Hadapi <span class="gradient-text">Seleksi CPNS 2026</span></h1>
+        <p class="hero-subtitle">Platform latihan CAT CPNS mandiri, 100% bebas iklan, cepat, dan bekerja sepenuhnya secara offline.</p>
+      </div>
+
+      <!-- Quick Progress Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="stats-completed">0</div>
+          <div class="stat-label">Selesai Dikerjakan</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stats-avg-score">0%</div>
+          <div class="stat-label">Rata-rata Skor</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stats-total-soal">0</div>
+          <div class="stat-label">Total Bank Soal</div>
+        </div>
+      </div>
+
+      <!-- Kategori Soal Cards -->
+      <h2 class="section-title">Kategori Materi Ujian</h2>
+      <div class="category-grid">
+        <!-- Card TWK -->
+        <div class="category-card" id="card-twk">
+          <div class="card-icon twk-icon">🇮🇩</div>
+          <h3 class="card-title">Tes Wawasan Kebangsaan</h3>
+          <p class="card-desc">Menguji penguasaan pengetahuan dan kemampuan implementasi nasionalisme, integritas, bela negara, dan pilar negara.</p>
+          <div class="card-meta">
+            <span class="count-badge" id="count-twk">0 Soal</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" onclick="selectCategory('TWK', 'latihan')">Latihan Soal</button>
+          </div>
+        </div>
+
+        <!-- Card TIU -->
+        <div class="category-card" id="card-tiu">
+          <div class="card-icon tiu-icon">💡</div>
+          <h3 class="card-title">Tes Inteligensia Umum</h3>
+          <p class="card-desc">Menguji kemampuan verbal (analogi, silogisme), numerik (deret, perbandingan), dan figural (analogi, serial).</p>
+          <div class="card-meta">
+            <span class="count-badge" id="count-tiu">0 Soal</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" onclick="selectCategory('TIU', 'latihan')">Latihan Soal</button>
+          </div>
+        </div>
+
+        <!-- Card TKP -->
+        <div class="category-card" id="card-tkp">
+          <div class="card-icon tkp-icon">🤝</div>
+          <h3 class="card-title">Tes Karakteristik Pribadi</h3>
+          <p class="card-desc">Menguji pelayanan publik, jejaring kerja, sosial budaya, TIK, profesionalisme, dan anti radikalisme.</p>
+          <div class="card-meta">
+            <span class="count-badge" id="count-tkp">0 Soal</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" onclick="selectCategory('TKP', 'latihan')">Latihan Soal</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full CAT Simulation Card -->
+      <div class="simulation-banner">
+        <div class="banner-content">
+          <h2 class="banner-title">Simulasi CAT CPNS Lengkap (110 Soal)</h2>
+          <p class="banner-desc">Uji kesiapan mental dan fisik Anda dengan simulasi CAT yang menyerupai tes sesungguhnya. Gabungan 30 Soal TWK, 35 Soal TIU, dan 45 Soal TKP dalam waktu 100 menit dengan sistem penilaian standar BKN.</p>
+          <button class="btn btn-primary" onclick="startFullSimulation()">Mulai Simulasi CAT</button>
+        </div>
+        <div class="banner-visual">⏰</div>
+      </div>
+
+      <!-- History and Results Logs -->
+      <div class="history-section hidden" id="history-section-area">
+        <h2 class="section-title">Riwayat Simulasi</h2>
+        <div class="history-list" id="history-list-container"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PACKET SELECTION -->
+    <section id="screen-packets" class="screen">
+      <div class="screen-header">
+        <button class="btn-back" onclick="showScreen('screen-dashboard')">← Dashboard</button>
+        <div>
+          <h2 class="screen-title" id="packet-screen-title">Pilih Paket Ujian</h2>
+          <p class="screen-subtitle" id="packet-screen-subtitle">Silakan pilih paket latihan untuk mengasah kemampuan Anda.</p>
+        </div>
+      </div>
+
+      <div class="packet-list-grid" id="packet-list-container">
+        <!-- Packets generated dynamically -->
+      </div>
+    </section>
+
+    <!-- SECTION 3: PRACTICE / EXAM VIEW -->
+    <section id="screen-practice" class="screen">
+      <!-- Exam Info Bar -->
+      <div class="exam-header">
+        <button class="btn-back btn-back-warn" id="btn-exit-exam" onclick="confirmExitExam()">Keluar Ujian</button>
+        <div class="exam-title-center">
+          <span class="exam-badge" id="exam-category-badge">TWK</span>
+          <span class="exam-name" id="exam-session-name">Latihan Paket 1</span>
+        </div>
+        <div class="exam-nav-grid-toggle" id="exam-grid-toggle" onclick="toggleExamGrid()">
+          <span class="grid-icon">☰</span> Daftar Soal
+        </div>
+      </div>
+
+      <div class="exam-content-layout">
+        <!-- Question Area -->
+        <div class="question-column">
+          <!-- Question Card -->
+          <div class="question-card">
+            <div class="question-meta-row">
+              <span class="question-number" id="question-number-display">Soal No. 1</span>
+              <span class="question-flag hidden" id="flag-indicator">🚩 Ragu-ragu</span>
+            </div>
+            
+            <div class="question-body">
+              <p class="question-text" id="question-text">Memuat pertanyaan...</p>
+              <div class="question-image-container hidden" id="question-image-box">
+                <img id="question-image" src="" alt="Gambar Soal">
+              </div>
+            </div>
+
+            <!-- Options (A-E) -->
+            <div class="options-container" id="options-box">
+              <!-- Options injected dynamically -->
+            </div>
+          </div>
+
+          <!-- Bottom Control Bar -->
+          <div class="exam-controls">
+            <button class="btn btn-outline" id="btn-prev-question" onclick="prevQuestion()">Sebelumnya</button>
+            
+            <button class="btn btn-warning btn-icon" id="btn-flag-question" onclick="toggleFlagQuestion()">
+              🚩 <span id="flag-btn-text">Ragu-Ragu</span>
+            </button>
+            
+            <button class="btn btn-outline" id="btn-next-question" onclick="nextQuestion()">Selanjutnya</button>
+            <button class="btn btn-success hidden" id="btn-submit-exam" onclick="confirmSubmitExam()">Selesai Ujian</button>
+          </div>
+
+          <!-- Interactive Explanation (Only shown in Latihan mode after answering) -->
+          <div class="explanation-card hidden" id="explanation-box">
+            <h4 class="explanation-title">Pembahasan Soal</h4>
+            <div class="explanation-body" id="explanation-text"></div>
+          </div>
+        </div>
+
+        <!-- Sidebar Answer Grid Sheet (Responsive toggle) -->
+        <aside class="exam-grid-sidebar" id="exam-sidebar">
+          <h3 class="sidebar-title">Lembar Jawaban</h3>
+          <div class="answer-sheet-grid" id="answer-sheet-grid">
+            <!-- Grid nodes injected dynamically -->
+          </div>
+          <div class="sidebar-legend">
+            <div class="legend-item"><span class="legend-dot answered"></span> Terjawab</div>
+            <div class="legend-item"><span class="legend-dot flagged"></span> Ragu-ragu</div>
+            <div class="legend-item"><span class="legend-dot unanswered"></span> Belum Diisi</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION 4: EXAM RESULT SUMMARY -->
+    <section id="screen-result" class="screen">
+      <div class="result-header">
+        <h2 class="result-title">Hasil Ujian Anda</h2>
+        <p class="result-subtitle" id="result-meta-text">Simulasi CAT CPNS 2026 selesai pada 18 Juni 2026</p>
+      </div>
+
+      <!-- Final Score and Gauge -->
+      <div class="score-summary-card">
+        <div class="score-circle-container">
+          <svg class="progress-ring" width="160" height="160">
+            <circle class="progress-ring__circle-bg" stroke="#1c202a" stroke-width="12" fill="transparent" r="70" cx="80" cy="80"/>
+            <circle class="progress-ring__circle" id="result-score-circle" stroke="#10b981" stroke-width="12" fill="transparent" r="70" cx="80" cy="80"/>
+          </svg>
+          <div class="score-display">
+            <span class="score-number" id="result-score-percent">0%</span>
+            <span class="score-label" id="result-score-raw">Skor: 0 / 550</span>
+          </div>
+        </div>
+
+        <div class="result-verdict-box">
+          <div class="verdict-status pass" id="result-status-verdict">LULUS</div>
+          <p class="verdict-desc" id="result-verdict-description">Selamat! Nilai Anda memenuhi nilai ambang batas (Passing Grade) yang ditentukan.</p>
+        </div>
+      </div>
+
+      <!-- Kategori Breakdown Table -->
+      <h3 class="section-title">Rincian Per Kategori</h3>
+      <div class="table-container">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>Materi</th>
+              <th>Nilai Anda</th>
+              <th>Passing Grade</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="result-table-body">
+            <!-- Injected dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="result-actions">
+        <button class="btn btn-primary" onclick="showScreen('screen-dashboard')">Kembali ke Dashboard</button>
+        <button class="btn btn-outline" id="btn-review-answers" onclick="startReviewAnswers()">Review Jawaban</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Confirm Dialog Overlay (Custom glassmorphism modal) -->
+  <div class="modal-overlay hidden" id="custom-modal">
+    <div class="modal-card">
+      <h3 class="modal-title" id="modal-title">Konfirmasi Ujian</h3>
+      <p class="modal-desc" id="modal-desc">Apakah Anda yakin ingin menyelesaikan simulasi ujian ini?</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" id="modal-btn-cancel">Batal</button>
+        <button class="btn btn-primary" id="modal-btn-confirm">Ya, Selesai</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

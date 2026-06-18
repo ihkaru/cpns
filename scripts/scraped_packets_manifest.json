@@ -1,0 +1,182 @@
+{
+  "TWK": [
+    {
+      "judul": "Paket 1",
+      "url": "https://script.google.com/macros/s/AKfycbyEfQQqj-H0MQgt_qvIdIFwSfGIcH0vQuENAsA17-GpBWLJZePErbJfsfEckmUOzrBhAQ/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Paket 2",
+      "url": "https://script.google.com/macros/s/AKfycbxri8XKTpLCl7othZLIjpBdKz-WhAR7G7-HTUL_S9UBVqODcjpxDzwCth0Sjn-qXQxzow/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Paket 3",
+      "url": "https://script.google.com/macros/s/AKfycbxPR8OxMQgHxN7zjveZpWXxqTAXtSddJzrzbSJkR8rReG4qJDOpBK5RZxpMQLnHZt1RMA/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Try Out 1 (30 Soal)",
+      "url": "https://script.google.com/macros/s/AKfycbxrmu1KdyF_quZmuXDgNPHAnuXnoJGVY8D589JONTcmps3pITRCWYf_j_8fgX7Kba1U7g/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Paket 4",
+      "url": "https://script.google.com/macros/s/AKfycbz3GmBEmE2fvtqm8vh8z4JtwPjloOEZc6i_P4WnGEoYDVQVTsYballRHgD7ttV9ewo0QQ/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Paket 5",
+      "url": "https://script.google.com/macros/s/AKfycbwri8zuSXUITo1nqJrSbCBiwiqXqiDXnRRPRadlGSkp-dUoc8zs1a4MyWOKWWt4IvyYHw/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Paket 6",
+      "url": "https://script.google.com/macros/s/AKfycbzZV3BlJEnQPZwCaoaqPWLajICAVs-RHhOcjeuvuKJv_euno6iM9gzyi6Kk_lIeJ6-hAg/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Try Out 2 (30 Soal)",
+      "url": "https://script.google.com/macros/s/AKfycbz9nIwsDT7E6Whq5RKyxBoxdmaIswKUagUj91LLjzQRBmQDJUzOAdQ-3rIxu5zCt8s73g/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Paket 7",
+      "url": "https://script.google.com/macros/s/AKfycbzLnpC4Qgo5nrJpkk2scLpxIJaFBFmtFHMQe2R3bKP_tRqmi2vpS0mPkjf9qpLL-LT3Jw/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Paket 8",
+      "url": "https://script.google.com/macros/s/AKfycbxUmiAiFfrGqvheJoOUmHf5fjxssUzCf3yk7zabZSpHcxTKlLELDLlCfFnin36z14AF/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Paket 9",
+      "url": "https://script.google.com/macros/s/AKfycbwAcPRM2IWh5DkHzvKqu8lqfn0G7WAJ-wr48cR3_iAChm_zPmoQQOe_OgD48IeOAl3dJQ/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Try Out 3 (30 Soal)",
+      "url": "https://script.google.com/macros/s/AKfycbyN6W9jDz_pJ7rHnngYAVAsyHDE3Zq_aP4yxTcQ28-2De9jV6pgYbfZlqVP6pY4cljPQg/exec?action=read",
+      "jenis": "latihan"
+    }
+  ],
+  "TIU": [
+    {
+      "judul": "Sinonim",
+      "url": "https://script.google.com/macros/s/AKfycbxUK1FdZdNphbIsm3PVDb1OSfvIUH38e5wekSG06ZBkz624N60gpK0oZ0aRv5OV1QI7Hg/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Antonim",
+      "url": "https://script.google.com/macros/s/AKfycbx7NiskJP7QG2fnoCn4KvAqhoAdIVjpNxn2kr6oh3uX0OxgTi2DlLYknMOd_OgpUeLHBw/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Figural 1",
+      "url": "https://script.google.com/macros/s/AKfycbyxXMMLVugd0bQvrg-74KdSPCvR2YOYNXQg_Srw7FQ__-ASSU56gvlUTyhkHFdgNhZXGg/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Figural 2",
+      "url": "https://script.google.com/macros/s/AKfycbx2Gox6gXVbAlk5lhZF5FTetFQr_qIjBQTkwSUa8uke7TiGF-dwjmyWB2z3NdTQDYgUZA/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Deret 1",
+      "url": "https://script.google.com/macros/s/AKfycbzgHjvIllmpmLiQOHyZ7sJBSjT0CsuUVYX9V6UX0YznEs994Vpviov0elSxZh7OBEIKMg/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Deret 2",
+      "url": "https://script.google.com/macros/s/AKfycbwvjygCw_aZntsnftBtkRpWwXrln5lKfuXr36QdvxfecBc0j8Y9uAvdqa9c1TsbTrCi9Q/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Try Out 1 (35 Soal)",
+      "url": "https://script.google.com/macros/s/AKfycbybR1wS6OqjdUYeGT3KtjSKpjL4Mv4uWyNJV6MByEg6ZQ5a3wcN1Wvq4bPEMvnZG1YVUA/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Try Out 2 (35 Soal)",
+      "url": "https://script.google.com/macros/s/AKfycbx6qQf-bUX38F5Px7GWFaM91rqe2bazG6uFGrSyPOZy6cepYSXhr4TjKB-wnPoCC7aXnA/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Latihan 1",
+      "url": "https://script.google.com/macros/s/AKfycbypzC9KZM_dwuOwqLxBtO5ZAZYylTP6-UBdMI3qWsOuDMpAxWbk9S2y0jGFNtQ4wpfd8A/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Latihan 2",
+      "url": "https://script.google.com/macros/s/AKfycbzFt82Ai_XYamJdz8liOX1Ym0JLnsIBsKSDVxJf6Hs-U7xmDkZRAqs1sPU9h_I29xAnDw/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Deret 3",
+      "url": "https://script.google.com/macros/s/AKfycbysDsm5NfQEPOLKVS8Ffb3noc7J687WhmnBgy7WPC6CM1ZZIsy6W4Y-DVHHiQdmfkhg8w/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Deret 4",
+      "url": "https://script.google.com/macros/s/AKfycbzzjIHRMcFT-IRAOkeeVe-IXzYYvpU_faR1b80OYxDwpAWwm23hp6ng0LMTYTRySbCiFA/exec?action=read",
+      "jenis": "latihan"
+    }
+  ],
+  "TKP": [
+    {
+      "judul": "Latihan 1",
+      "url": "https://script.google.com/macros/s/AKfycbzQIFFug2cdOcwQd4Z9UL2vqo7-WJSxgjRBg4Wphg2z9ulVDerFblCmC9fR677uGqYrQA/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Latihan 2",
+      "url": "https://script.google.com/macros/s/AKfycbweKHf4AsD1Hk2qJARvAjW_mATWL_kr_aU-z6ujoOS8iwx0sBc32Aqw8MkS6VTY8drkPg/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Latihan 3",
+      "url": "https://script.google.com/macros/s/AKfycbxBzzSPiS8CVLLuKxwaIZh-XeT_SQqMiDyJkicZazhAZyHQR4g0minm9zZvPZZlfm2GuQ/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Tryout (45 Soal)",
+      "url": "https://script.google.com/macros/s/AKfycbwBWBXBhy5ZprSQLjOjw7o7v9dEl6jb6VdIboqgvLGJtqaPt0gvpyl2PjiZddvU1XkTuA/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Latihan 4",
+      "url": "https://script.google.com/macros/s/AKfycbz3IQT7xgDZsK06UcBOmLor8snuE7MhRGNdzvbuizD-qsBxFzXWA8vlp5e4z9CyqrTWtg/exec?action=read",
+      "jenis": "latihan"
+    },
+    {
+      "judul": "Latihan 5",
+      "url": "https://script.google.com/macros/s/AKfycbypxhcTKJKAlYe1kCdBcORJVhXv1CajKXXnBO3KfkQ9V8rCvUcc8CCYf34QNYEt_XlsyA/exec?action=read",
+      "jenis": "latihan"
+    }
+  ],
+  "Tryout_SKD": [
+    {
+      "judul": "Latihan CAT 1",
+      "url": "https://script.google.com/macros/s/AKfycbzdiStCMn1GxC040dDEemZoNK4FPY4BMnNegz0sApvAI1bmbreK5eS2wBK-vEZktmMD6Q/exec?action=read",
+      "jenis": "tryout"
+    },
+    {
+      "judul": "Latihan CAT 2",
+      "url": "https://script.google.com/macros/s/AKfycbySx57ZChs2C5Vqc5BdMf9Zj_9B46nthi2gvi5YxgoKpDhw0RpMDorqxFEN_jznB3xq5A/exec?action=read",
+      "jenis": "tryout"
+    },
+    {
+      "judul": "Latihan CAT 3",
+      "url": "https://script.google.com/macros/s/AKfycbxNY-TC7EkE5zniFeAZX8ppYnAPXZQImELvhiR13-C1TVfakJDXs7s7h2ejl89VRtwynQ/exec?action=read",
+      "jenis": "tryout"
+    }
+  ],
+  "Tryout_SKB": [
+    {
+      "judul": "Dosen",
+      "url": "https://script.google.com/macros/s/AKfycbzYUoe5phUym7LeMCt1jcB9dQJf4xl6S1lbhWx7ZNTxe48LdBa_vAsZCEfjgZPuuRQNXg/exec?action=read",
+      "jenis": "coming soon"
+    }
+  ]
+}

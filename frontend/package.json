@@ -1,0 +1,32 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@capacitor/app": "^8.1.0",
+    "@capacitor/core": "^8.4.0",
+    "dom7": "^4.0.6",
+    "framework7": "^9.0.5",
+    "framework7-vue": "^9.0.5",
+    "vue": "^3.5.34"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "@vue/eslint-config-typescript": "^14.8.0",
+    "eslint": "^10.5.0",
+    "eslint-plugin-vue": "^10.9.2",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.12",
+    "vue-tsc": "^3.3.5"
+  }
+}

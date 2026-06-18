@@ -1,0 +1,38 @@
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+db.json
+
+# IDE / Editor Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment Files (Local/Development)
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+!.env.example
+
+# Build/Dependensi
+node_modules/
+vendor/
+dist/
+/frontend/dist/
+/backend/vendor/
+/backend/public/build/
+/backend/public/hot/
+/backend/storage/*.key
+/backend/storage/pail/
