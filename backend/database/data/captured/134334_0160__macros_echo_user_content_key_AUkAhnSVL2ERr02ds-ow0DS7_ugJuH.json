@@ -1,0 +1,172 @@
+{
+  "capture_time": "2026-06-18T13:43:34.609911",
+  "url": "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSVL2ERr02ds-ow0DS7_ugJuHyJ3P6ErGryU2U_rOAxPnNmN7GGRRX6liI-5mtLFXmAmvV9tlsuPxv4tw9UEb52C4Z49OEebgZnkoOzMjreYozIW7V6OuUUzGRlzGNSFH-sGXX1wsk2Po7xAeHynMOx6qwSuarImge87kSpkdVx2_SxXFgS9Cqx_Akr_FoXGfop6mYhxF49TYHZA9xrNZt6jWBQk1pgX26dok-KULPZqVsathatgphlJi_DipSOe7J3Wy94rRJvACBwF2jP_o6fI7EZeRiWhLT6ahB-&lib=MAXqNVGDQjQ1b9UdlaBd4qmbkSMavoA9a",
+  "method": "GET",
+  "status_code": 200,
+  "query_params": {
+    "user_content_key": "AUkAhnSVL2ERr02ds-ow0DS7_ugJuHyJ3P6ErGryU2U_rOAxPnNmN7GGRRX6liI-5mtLFXmAmvV9tlsuPxv4tw9UEb52C4Z49OEebgZnkoOzMjreYozIW7V6OuUUzGRlzGNSFH-sGXX1wsk2Po7xAeHynMOx6qwSuarImge87kSpkdVx2_SxXFgS9Cqx_Akr_FoXGfop6mYhxF49TYHZA9xrNZt6jWBQk1pgX26dok-KULPZqVsathatgphlJi_DipSOe7J3Wy94rRJvACBwF2jP_o6fI7EZeRiWhLT6ahB-",
+    "lib": "MAXqNVGDQjQ1b9UdlaBd4qmbkSMavoA9a"
+  },
+  "request_body": "",
+  "response_raw": "{\"records\":[{\"id\":1,\"judul_paket\":\"Sinonim\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/9134/9134493.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbxUK1FdZdNphbIsm3PVDb1OSfvIUH38e5wekSG06ZBkz624N60gpK0oZ0aRv5OV1QI7Hg/exec?action=read\",\"waktu_menit\":\"16\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":2,\"judul_paket\":\"Antonim\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/9134/9134493.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbx7NiskJP7QG2fnoCn4KvAqhoAdIVjpNxn2kr6oh3uX0OxgTi2DlLYknMOd_OgpUeLHBw/exec?action=read\",\"waktu_menit\":\"16\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":3,\"judul_paket\":\"Figural 1\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/10228/10228917.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbyxXMMLVugd0bQvrg-74KdSPCvR2YOYNXQg_Srw7FQ__-ASSU56gvlUTyhkHFdgNhZXGg/exec?action=read\",\"waktu_menit\":\"16\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":4,\"judul_paket\":\"Figural 2\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/10228/10228917.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbx2Gox6gXVbAlk5lhZF5FTetFQr_qIjBQTkwSUa8uke7TiGF-dwjmyWB2z3NdTQDYgUZA/exec?action=read\",\"waktu_menit\":\"16\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":5,\"judul_paket\":\"Deret 1\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/709/709337.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbzgHjvIllmpmLiQOHyZ7sJBSjT0CsuUVYX9V6UX0YznEs994Vpviov0elSxZh7OBEIKMg/exec?action=read\",\"waktu_menit\":\"16\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":6,\"judul_paket\":\"Deret 2\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/709/709337.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbwvjygCw_aZntsnftBtkRpWwXrln5lKfuXr36QdvxfecBc0j8Y9uAvdqa9c1TsbTrCi9Q/exec?action=read\",\"waktu_menit\":\"16\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":7,\"judul_paket\":\"Try Out 1 (35 Soal)\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3403/3403504.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbybR1wS6OqjdUYeGT3KtjSKpjL4Mv4uWyNJV6MByEg6ZQ5a3wcN1Wvq4bPEMvnZG1YVUA/exec?action=read\",\"waktu_menit\":\"40\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"cat\",\"passing_grade\":\"80\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":8,\"judul_paket\":\"Try Out 2 (35 Soal)\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3403/3403504.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbx6qQf-bUX38F5Px7GWFaM91rqe2bazG6uFGrSyPOZy6cepYSXhr4TjKB-wnPoCC7aXnA/exec?action=read\",\"waktu_menit\":\"40\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"cat\",\"passing_grade\":\"80\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":9,\"judul_paket\":\"Latihan 1\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/7179/7179165.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbypzC9KZM_dwuOwqLxBtO5ZAZYylTP6-UBdMI3qWsOuDMpAxWbk9S2y0jGFNtQ4wpfd8A/exec?action=read\",\"waktu_menit\":\"1\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":10,\"judul_paket\":\"Latihan 2\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/7179/7179165.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbzFt82Ai_XYamJdz8liOX1Ym0JLnsIBsKSDVxJf6Hs-U7xmDkZRAqs1sPU9h_I29xAnDw/exec?action=read\",\"waktu_menit\":\"1\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":11,\"judul_paket\":\"Deret 3\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/709/709337.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbysDsm5NfQEPOLKVS8Ffb3noc7J687WhmnBgy7WPC6CM1ZZIsy6W4Y-DVHHiQdmfkhg8w/exec?action=read\",\"waktu_menit\":\"16\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":12,\"judul_paket\":\"Deret 4\",\"deskripsi_paket\":\"SOAL TIU\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/709/709337.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbzzjIHRMcFT-IRAOkeeVe-IXzYYvpU_faR1b80OYxDwpAWwm23hp6ng0LMTYTRySbCiFA/exec?action=read\",\"waktu_menit\":\"16\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"}]}",
+  "response_json": {
+    "records": [
+      {
+        "id": 1,
+        "judul_paket": "Sinonim",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/9134/9134493.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbxUK1FdZdNphbIsm3PVDb1OSfvIUH38e5wekSG06ZBkz624N60gpK0oZ0aRv5OV1QI7Hg/exec?action=read",
+        "waktu_menit": "16",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 2,
+        "judul_paket": "Antonim",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/9134/9134493.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbx7NiskJP7QG2fnoCn4KvAqhoAdIVjpNxn2kr6oh3uX0OxgTi2DlLYknMOd_OgpUeLHBw/exec?action=read",
+        "waktu_menit": "16",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 3,
+        "judul_paket": "Figural 1",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/10228/10228917.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbyxXMMLVugd0bQvrg-74KdSPCvR2YOYNXQg_Srw7FQ__-ASSU56gvlUTyhkHFdgNhZXGg/exec?action=read",
+        "waktu_menit": "16",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 4,
+        "judul_paket": "Figural 2",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/10228/10228917.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbx2Gox6gXVbAlk5lhZF5FTetFQr_qIjBQTkwSUa8uke7TiGF-dwjmyWB2z3NdTQDYgUZA/exec?action=read",
+        "waktu_menit": "16",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 5,
+        "judul_paket": "Deret 1",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/709/709337.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbzgHjvIllmpmLiQOHyZ7sJBSjT0CsuUVYX9V6UX0YznEs994Vpviov0elSxZh7OBEIKMg/exec?action=read",
+        "waktu_menit": "16",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 6,
+        "judul_paket": "Deret 2",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/709/709337.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbwvjygCw_aZntsnftBtkRpWwXrln5lKfuXr36QdvxfecBc0j8Y9uAvdqa9c1TsbTrCi9Q/exec?action=read",
+        "waktu_menit": "16",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 7,
+        "judul_paket": "Try Out 1 (35 Soal)",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3403/3403504.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbybR1wS6OqjdUYeGT3KtjSKpjL4Mv4uWyNJV6MByEg6ZQ5a3wcN1Wvq4bPEMvnZG1YVUA/exec?action=read",
+        "waktu_menit": "40",
+        "mode_soal": "benar_salah",
+        "mode_point": "cat",
+        "passing_grade": "80",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 8,
+        "judul_paket": "Try Out 2 (35 Soal)",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3403/3403504.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbx6qQf-bUX38F5Px7GWFaM91rqe2bazG6uFGrSyPOZy6cepYSXhr4TjKB-wnPoCC7aXnA/exec?action=read",
+        "waktu_menit": "40",
+        "mode_soal": "benar_salah",
+        "mode_point": "cat",
+        "passing_grade": "80",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 9,
+        "judul_paket": "Latihan 1",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/7179/7179165.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbypzC9KZM_dwuOwqLxBtO5ZAZYylTP6-UBdMI3qWsOuDMpAxWbk9S2y0jGFNtQ4wpfd8A/exec?action=read",
+        "waktu_menit": "1",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 10,
+        "judul_paket": "Latihan 2",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/7179/7179165.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbzFt82Ai_XYamJdz8liOX1Ym0JLnsIBsKSDVxJf6Hs-U7xmDkZRAqs1sPU9h_I29xAnDw/exec?action=read",
+        "waktu_menit": "1",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 11,
+        "judul_paket": "Deret 3",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/709/709337.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbysDsm5NfQEPOLKVS8Ffb3noc7J687WhmnBgy7WPC6CM1ZZIsy6W4Y-DVHHiQdmfkhg8w/exec?action=read",
+        "waktu_menit": "16",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 12,
+        "judul_paket": "Deret 4",
+        "deskripsi_paket": "SOAL TIU",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/709/709337.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbzzjIHRMcFT-IRAOkeeVe-IXzYYvpU_faR1b80OYxDwpAWwm23hp6ng0LMTYTRySbCiFA/exec?action=read",
+        "waktu_menit": "16",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      }
+    ]
+  }
+}

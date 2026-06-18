@@ -1,0 +1,172 @@
+{
+  "capture_time": "2026-06-18T13:24:35.991281",
+  "url": "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnTnaLeYwk0ye8RlK187zNTVvGxlcitoufgaW5jAaBgHaiFXjRCj6_MLtUSrHGFafsOa19EMGHXAjTNgVEhY9XqMvRFt5WYS0gZ3M063FYmFLSuwzBsEkrv6yUm1GxeNF04vSKFNMqOl1S-IOREDeB8Dr6dlqEvBjCb3RpLyH-crdmoiaqnedPixzraTsQ1u7iEAwcIPJRfnDoryl1fxPnCmwryDQ7w6b-VVfCdb9DvVPFkcY6HHGBIne1N9v3dHmhmMO50m7KSj_saaZRZzCXJAfjQsbP7qwQLuZc-8&lib=MAXqNVGDQjQ1b9UdlaBd4qmbkSMavoA9a",
+  "method": "GET",
+  "status_code": 200,
+  "query_params": {
+    "user_content_key": "AUkAhnTnaLeYwk0ye8RlK187zNTVvGxlcitoufgaW5jAaBgHaiFXjRCj6_MLtUSrHGFafsOa19EMGHXAjTNgVEhY9XqMvRFt5WYS0gZ3M063FYmFLSuwzBsEkrv6yUm1GxeNF04vSKFNMqOl1S-IOREDeB8Dr6dlqEvBjCb3RpLyH-crdmoiaqnedPixzraTsQ1u7iEAwcIPJRfnDoryl1fxPnCmwryDQ7w6b-VVfCdb9DvVPFkcY6HHGBIne1N9v3dHmhmMO50m7KSj_saaZRZzCXJAfjQsbP7qwQLuZc-8",
+    "lib": "MAXqNVGDQjQ1b9UdlaBd4qmbkSMavoA9a"
+  },
+  "request_body": "",
+  "response_raw": "{\"records\":[{\"id\":1,\"judul_paket\":\"Paket 1\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3782/3782306.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbyEfQQqj-H0MQgt_qvIdIFwSfGIcH0vQuENAsA17-GpBWLJZePErbJfsfEckmUOzrBhAQ/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":2,\"judul_paket\":\"Paket 2\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3782/3782306.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbxri8XKTpLCl7othZLIjpBdKz-WhAR7G7-HTUL_S9UBVqODcjpxDzwCth0Sjn-qXQxzow/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":3,\"judul_paket\":\"Paket 3\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3782/3782306.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbxPR8OxMQgHxN7zjveZpWXxqTAXtSddJzrzbSJkR8rReG4qJDOpBK5RZxpMQLnHZt1RMA/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":4,\"judul_paket\":\"Try Out 1 (30 Soal)\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/1205/1205526.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbxrmu1KdyF_quZmuXDgNPHAnuXnoJGVY8D589JONTcmps3pITRCWYf_j_8fgX7Kba1U7g/exec?action=read\",\"waktu_menit\":\"30\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"cat\",\"passing_grade\":\"65\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":5,\"judul_paket\":\"Paket 4\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/8238/8238798.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbz3GmBEmE2fvtqm8vh8z4JtwPjloOEZc6i_P4WnGEoYDVQVTsYballRHgD7ttV9ewo0QQ/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":6,\"judul_paket\":\"Paket 5\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/8238/8238798.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbwri8zuSXUITo1nqJrSbCBiwiqXqiDXnRRPRadlGSkp-dUoc8zs1a4MyWOKWWt4IvyYHw/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":7,\"judul_paket\":\"Paket 6\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/8238/8238798.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbzZV3BlJEnQPZwCaoaqPWLajICAVs-RHhOcjeuvuKJv_euno6iM9gzyi6Kk_lIeJ6-hAg/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":8,\"judul_paket\":\"Try Out 2 (30 Soal)\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/1205/1205526.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbz9nIwsDT7E6Whq5RKyxBoxdmaIswKUagUj91LLjzQRBmQDJUzOAdQ-3rIxu5zCt8s73g/exec?action=read\",\"waktu_menit\":\"30\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"cat\",\"passing_grade\":\"65\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":9,\"judul_paket\":\"Paket 7\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/4850/4850896.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbzLnpC4Qgo5nrJpkk2scLpxIJaFBFmtFHMQe2R3bKP_tRqmi2vpS0mPkjf9qpLL-LT3Jw/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":10,\"judul_paket\":\"Paket 8\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/4850/4850896.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbxUmiAiFfrGqvheJoOUmHf5fjxssUzCf3yk7zabZSpHcxTKlLELDLlCfFnin36z14AF/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":11,\"judul_paket\":\"Paket 9\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/4850/4850896.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbwAcPRM2IWh5DkHzvKqu8lqfn0G7WAJ-wr48cR3_iAChm_zPmoQQOe_OgD48IeOAl3dJQ/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"persentase\",\"passing_grade\":\"70\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":12,\"judul_paket\":\"Try Out 3 (30 Soal)\",\"deskripsi_paket\":\"SOAL TWK\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/1205/1205526.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbyN6W9jDz_pJ7rHnngYAVAsyHDE3Zq_aP4yxTcQ28-2De9jV6pgYbfZlqVP6pY4cljPQg/exec?action=read\",\"waktu_menit\":\"30\",\"mode_soal\":\"benar_salah\",\"mode_point\":\"cat\",\"passing_grade\":\"65\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"}]}",
+  "response_json": {
+    "records": [
+      {
+        "id": 1,
+        "judul_paket": "Paket 1",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3782/3782306.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbyEfQQqj-H0MQgt_qvIdIFwSfGIcH0vQuENAsA17-GpBWLJZePErbJfsfEckmUOzrBhAQ/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 2,
+        "judul_paket": "Paket 2",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3782/3782306.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbxri8XKTpLCl7othZLIjpBdKz-WhAR7G7-HTUL_S9UBVqODcjpxDzwCth0Sjn-qXQxzow/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 3,
+        "judul_paket": "Paket 3",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3782/3782306.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbxPR8OxMQgHxN7zjveZpWXxqTAXtSddJzrzbSJkR8rReG4qJDOpBK5RZxpMQLnHZt1RMA/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 4,
+        "judul_paket": "Try Out 1 (30 Soal)",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/1205/1205526.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbxrmu1KdyF_quZmuXDgNPHAnuXnoJGVY8D589JONTcmps3pITRCWYf_j_8fgX7Kba1U7g/exec?action=read",
+        "waktu_menit": "30",
+        "mode_soal": "benar_salah",
+        "mode_point": "cat",
+        "passing_grade": "65",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 5,
+        "judul_paket": "Paket 4",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/8238/8238798.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbz3GmBEmE2fvtqm8vh8z4JtwPjloOEZc6i_P4WnGEoYDVQVTsYballRHgD7ttV9ewo0QQ/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 6,
+        "judul_paket": "Paket 5",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/8238/8238798.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbwri8zuSXUITo1nqJrSbCBiwiqXqiDXnRRPRadlGSkp-dUoc8zs1a4MyWOKWWt4IvyYHw/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 7,
+        "judul_paket": "Paket 6",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/8238/8238798.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbzZV3BlJEnQPZwCaoaqPWLajICAVs-RHhOcjeuvuKJv_euno6iM9gzyi6Kk_lIeJ6-hAg/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 8,
+        "judul_paket": "Try Out 2 (30 Soal)",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/1205/1205526.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbz9nIwsDT7E6Whq5RKyxBoxdmaIswKUagUj91LLjzQRBmQDJUzOAdQ-3rIxu5zCt8s73g/exec?action=read",
+        "waktu_menit": "30",
+        "mode_soal": "benar_salah",
+        "mode_point": "cat",
+        "passing_grade": "65",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 9,
+        "judul_paket": "Paket 7",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/4850/4850896.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbzLnpC4Qgo5nrJpkk2scLpxIJaFBFmtFHMQe2R3bKP_tRqmi2vpS0mPkjf9qpLL-LT3Jw/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 10,
+        "judul_paket": "Paket 8",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/4850/4850896.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbxUmiAiFfrGqvheJoOUmHf5fjxssUzCf3yk7zabZSpHcxTKlLELDLlCfFnin36z14AF/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 11,
+        "judul_paket": "Paket 9",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/4850/4850896.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbwAcPRM2IWh5DkHzvKqu8lqfn0G7WAJ-wr48cR3_iAChm_zPmoQQOe_OgD48IeOAl3dJQ/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "benar_salah",
+        "mode_point": "persentase",
+        "passing_grade": "70",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 12,
+        "judul_paket": "Try Out 3 (30 Soal)",
+        "deskripsi_paket": "SOAL TWK",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/1205/1205526.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbyN6W9jDz_pJ7rHnngYAVAsyHDE3Zq_aP4yxTcQ28-2De9jV6pgYbfZlqVP6pY4cljPQg/exec?action=read",
+        "waktu_menit": "30",
+        "mode_soal": "benar_salah",
+        "mode_point": "cat",
+        "passing_grade": "65",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      }
+    ]
+  }
+}

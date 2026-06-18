@@ -1,0 +1,42 @@
+{
+  "capture_time": "2026-06-18T13:40:39.381112",
+  "url": "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnQQARAz-_bGMSi07anQVMW2xaEl72WQ13WMrQpgE77pgnv7xhz4k7d-ebpaePwGo5eNhsE9G4fpI6CZVc3p9FS_VpqlK63lTf6lhk_u4TdShfS7PqT8vwIuCxeJKK5DYQBDVL7tb6ypW7Jm7b-_h_854pKaN1MMCbHnkmrf3AqtqAPMxcHfzNBbZFWmc3zdPglGiXIRdDiavY2sqisJt12Fn5Vx4X2HJSXu3wX6IFcLpnzm2w7hfa5pjTDa6Y5d2ttVapTrjWP5V3TQpb4SW0l9C1rhiCG2Zt2NxeUB&lib=MDRkBPUCLTCcRibmsZJ6qigIuWYsX8I9x",
+  "method": "GET",
+  "status_code": 200,
+  "query_params": {
+    "user_content_key": "AUkAhnQQARAz-_bGMSi07anQVMW2xaEl72WQ13WMrQpgE77pgnv7xhz4k7d-ebpaePwGo5eNhsE9G4fpI6CZVc3p9FS_VpqlK63lTf6lhk_u4TdShfS7PqT8vwIuCxeJKK5DYQBDVL7tb6ypW7Jm7b-_h_854pKaN1MMCbHnkmrf3AqtqAPMxcHfzNBbZFWmc3zdPglGiXIRdDiavY2sqisJt12Fn5Vx4X2HJSXu3wX6IFcLpnzm2w7hfa5pjTDa6Y5d2ttVapTrjWP5V3TQpb4SW0l9C1rhiCG2Zt2NxeUB",
+    "lib": "MDRkBPUCLTCcRibmsZJ6qigIuWYsX8I9x"
+  },
+  "request_body": "",
+  "response_raw": "{\"records\":[{\"id\":1,\"judul_paket\":\"Dosen\",\"deskripsi_paket\":\"SKB (Akan segera tersedia)\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/128/609/609002.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbzYUoe5phUym7LeMCt1jcB9dQJf4xl6S1lbhWx7ZNTxe48LdBa_vAsZCEfjgZPuuRQNXg/exec?action=read\",\"waktu_menit\":\"100\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"persentase\",\"passing_grade\":\"65\",\"mode\":\"static\",\"jenis_soal\":\"coming soon\"},{\"id\":2,\"judul_paket\":\"Guru\",\"deskripsi_paket\":\"SKB (Akan segera tersedia)\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/128/3048/3048709.png\",\"url_service_soal\":\"\",\"waktu_menit\":\"10\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"persentase\",\"passing_grade\":\"65\",\"mode\":\"static\",\"jenis_soal\":\"coming soon\"}]}",
+  "response_json": {
+    "records": [
+      {
+        "id": 1,
+        "judul_paket": "Dosen",
+        "deskripsi_paket": "SKB (Akan segera tersedia)",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/128/609/609002.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbzYUoe5phUym7LeMCt1jcB9dQJf4xl6S1lbhWx7ZNTxe48LdBa_vAsZCEfjgZPuuRQNXg/exec?action=read",
+        "waktu_menit": "100",
+        "mode_soal": "skala1_5",
+        "mode_point": "persentase",
+        "passing_grade": "65",
+        "mode": "static",
+        "jenis_soal": "coming soon"
+      },
+      {
+        "id": 2,
+        "judul_paket": "Guru",
+        "deskripsi_paket": "SKB (Akan segera tersedia)",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/128/3048/3048709.png",
+        "url_service_soal": "",
+        "waktu_menit": "10",
+        "mode_soal": "skala1_5",
+        "mode_point": "persentase",
+        "passing_grade": "65",
+        "mode": "static",
+        "jenis_soal": "coming soon"
+      }
+    ]
+  }
+}

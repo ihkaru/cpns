@@ -1,0 +1,94 @@
+{
+  "capture_time": "2026-06-18T13:36:39.607142",
+  "url": "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnQ_T2-HXyQXM8k1BmHtZmDwlUO_zKsHfc7pEXqKnDSpUc9NHAG2N-T26Hv8_LAZMoErlea0EZIf0zKyL9ASLkx3nL8IthX0fM-cV4Kb5suHiJ1U4IMEQEQeQMFThMwXvxEsy-ChZ3175wV0oCGRRdhkoSaFeGFW8K7yif87U9RUTswzByXhFk0tFBD38oBDIbacgeYTFyspMZ6FG2O681bzI1CxuAXp3KprI9pCg9X0m8F4PLZeFsgCFDznjPM9bIxR06N1U4wo8aBFZhlhCSctHZ-PmFNN2zujWRMN&lib=MAXqNVGDQjQ1b9UdlaBd4qmbkSMavoA9a",
+  "method": "GET",
+  "status_code": 200,
+  "query_params": {
+    "user_content_key": "AUkAhnQ_T2-HXyQXM8k1BmHtZmDwlUO_zKsHfc7pEXqKnDSpUc9NHAG2N-T26Hv8_LAZMoErlea0EZIf0zKyL9ASLkx3nL8IthX0fM-cV4Kb5suHiJ1U4IMEQEQeQMFThMwXvxEsy-ChZ3175wV0oCGRRdhkoSaFeGFW8K7yif87U9RUTswzByXhFk0tFBD38oBDIbacgeYTFyspMZ6FG2O681bzI1CxuAXp3KprI9pCg9X0m8F4PLZeFsgCFDznjPM9bIxR06N1U4wo8aBFZhlhCSctHZ-PmFNN2zujWRMN",
+    "lib": "MAXqNVGDQjQ1b9UdlaBd4qmbkSMavoA9a"
+  },
+  "request_body": "",
+  "response_raw": "{\"records\":[{\"id\":1,\"judul_paket\":\"Latihan 1\",\"deskripsi_paket\":\"SOAL TKP\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/1465/1465419.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbzQIFFug2cdOcwQd4Z9UL2vqo7-WJSxgjRBg4Wphg2z9ulVDerFblCmC9fR677uGqYrQA/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"persentase\",\"passing_grade\":\"65\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":2,\"judul_paket\":\"Latihan 2\",\"deskripsi_paket\":\"SOAL TKP\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/1465/1465419.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbweKHf4AsD1Hk2qJARvAjW_mATWL_kr_aU-z6ujoOS8iwx0sBc32Aqw8MkS6VTY8drkPg/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"persentase\",\"passing_grade\":\"65\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":3,\"judul_paket\":\"Latihan 3\",\"deskripsi_paket\":\"SOAL TKP\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/1465/1465419.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbxBzzSPiS8CVLLuKxwaIZh-XeT_SQqMiDyJkicZazhAZyHQR4g0minm9zZvPZZlfm2GuQ/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"persentase\",\"passing_grade\":\"65\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":4,\"judul_paket\":\"Tryout (45 Soal)\",\"deskripsi_paket\":\"SOAL TKP\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3403/3403504.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbwBWBXBhy5ZprSQLjOjw7o7v9dEl6jb6VdIboqgvLGJtqaPt0gvpyl2PjiZddvU1XkTuA/exec?action=read\",\"waktu_menit\":\"30\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"cat\",\"passing_grade\":\"143\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":5,\"judul_paket\":\"Latihan 4\",\"deskripsi_paket\":\"SOAL TKP\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/6449/6449103.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbz3IQT7xgDZsK06UcBOmLor8snuE7MhRGNdzvbuizD-qsBxFzXWA8vlp5e4z9CyqrTWtg/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"persentase\",\"passing_grade\":\"65\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"},{\"id\":6,\"judul_paket\":\"Latihan 5\",\"deskripsi_paket\":\"SOAL TKP\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/6449/6449103.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbypxhcTKJKAlYe1kCdBcORJVhXv1CajKXXnBO3KfkQ9V8rCvUcc8CCYf34QNYEt_XlsyA/exec?action=read\",\"waktu_menit\":\"10\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"persentase\",\"passing_grade\":\"65\",\"mode\":\"random\",\"jenis_soal\":\"latihan\"}]}",
+  "response_json": {
+    "records": [
+      {
+        "id": 1,
+        "judul_paket": "Latihan 1",
+        "deskripsi_paket": "SOAL TKP",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/1465/1465419.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbzQIFFug2cdOcwQd4Z9UL2vqo7-WJSxgjRBg4Wphg2z9ulVDerFblCmC9fR677uGqYrQA/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "skala1_5",
+        "mode_point": "persentase",
+        "passing_grade": "65",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 2,
+        "judul_paket": "Latihan 2",
+        "deskripsi_paket": "SOAL TKP",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/1465/1465419.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbweKHf4AsD1Hk2qJARvAjW_mATWL_kr_aU-z6ujoOS8iwx0sBc32Aqw8MkS6VTY8drkPg/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "skala1_5",
+        "mode_point": "persentase",
+        "passing_grade": "65",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 3,
+        "judul_paket": "Latihan 3",
+        "deskripsi_paket": "SOAL TKP",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/1465/1465419.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbxBzzSPiS8CVLLuKxwaIZh-XeT_SQqMiDyJkicZazhAZyHQR4g0minm9zZvPZZlfm2GuQ/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "skala1_5",
+        "mode_point": "persentase",
+        "passing_grade": "65",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 4,
+        "judul_paket": "Tryout (45 Soal)",
+        "deskripsi_paket": "SOAL TKP",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3403/3403504.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbwBWBXBhy5ZprSQLjOjw7o7v9dEl6jb6VdIboqgvLGJtqaPt0gvpyl2PjiZddvU1XkTuA/exec?action=read",
+        "waktu_menit": "30",
+        "mode_soal": "skala1_5",
+        "mode_point": "cat",
+        "passing_grade": "143",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 5,
+        "judul_paket": "Latihan 4",
+        "deskripsi_paket": "SOAL TKP",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/6449/6449103.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbz3IQT7xgDZsK06UcBOmLor8snuE7MhRGNdzvbuizD-qsBxFzXWA8vlp5e4z9CyqrTWtg/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "skala1_5",
+        "mode_point": "persentase",
+        "passing_grade": "65",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      },
+      {
+        "id": 6,
+        "judul_paket": "Latihan 5",
+        "deskripsi_paket": "SOAL TKP",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/6449/6449103.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbypxhcTKJKAlYe1kCdBcORJVhXv1CajKXXnBO3KfkQ9V8rCvUcc8CCYf34QNYEt_XlsyA/exec?action=read",
+        "waktu_menit": "10",
+        "mode_soal": "skala1_5",
+        "mode_point": "persentase",
+        "passing_grade": "65",
+        "mode": "random",
+        "jenis_soal": "latihan"
+      }
+    ]
+  }
+}

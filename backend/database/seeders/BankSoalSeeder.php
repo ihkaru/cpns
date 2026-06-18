@@ -20,6 +20,13 @@ class BankSoalSeeder extends Seeder
         $jsonPath = base_path('../scripts/bank_soal_cpns.json');
         $capturedDir = base_path('../scripts/captured');
 
+        // Fallback for production where external scripts/ is not copied/mounted
+        if (!File::exists($manifestPath) || !File::exists($jsonPath)) {
+            $manifestPath = database_path('data/scraped_packets_manifest.json');
+            $jsonPath = database_path('data/bank_soal_cpns.json');
+            $capturedDir = database_path('data/captured');
+        }
+
         if (!File::exists($manifestPath) || !File::exists($jsonPath)) {
             $this->command->error("File manifes atau database JSON tidak ditemukan.");
             return;

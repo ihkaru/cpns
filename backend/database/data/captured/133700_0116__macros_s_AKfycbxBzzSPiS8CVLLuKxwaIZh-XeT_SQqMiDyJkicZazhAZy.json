@@ -1,0 +1,12 @@
+{
+  "capture_time": "2026-06-18T13:37:00.565695",
+  "url": "https://script.google.com/macros/s/AKfycbxBzzSPiS8CVLLuKxwaIZh-XeT_SQqMiDyJkicZazhAZyHQR4g0minm9zZvPZZlfm2GuQ/exec?action=read",
+  "method": "GET",
+  "status_code": 302,
+  "query_params": {
+    "action": "read"
+  },
+  "request_body": "",
+  "response_raw": "<HTML>\n<HEAD>\n<TITLE>Moved Temporarily</TITLE>\n</HEAD>\n<BODY BGCOLOR=\"#FFFFFF\" TEXT=\"#000000\">\n<!-- GSE Default Error -->\n<H1>Moved Temporarily</H1>\nThe document has moved <A HREF=\"https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSn-LjMYJOQAkWRblyxZGPRiVsbdxTBwplyPPydOGXdOxx0vanqOL8lALTsKuCaAXL9Ff4gqOVhr4mY8Jom8wOV2jqaekM6XGQXaWMV_iQMtl3Zs_Oe6au7-fKngoCi6Lh1lAfDoqCIHzBoJbDiRNAUlAC8hjGxRKFHvnsGjIQ1rhSKOs2GWoBR6NnI3ZSDecTB3z5TzI9ltqZsUOMy7IhLUTzDyo4fC5i93L72bepaWm4OCj-nOSiBw0FBb8qqfDZJOTLHS3MCOllFTnNCRP_Z2E1VfRhmTzLBjlV6&amp;lib=MAXqNVGDQjQ1b9UdlaBd4qmbkSMavoA9a\">here</A>.\n</BODY>\n</HTML>\n",
+  "response_json": null
+}

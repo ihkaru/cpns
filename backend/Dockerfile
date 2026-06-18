@@ -45,5 +45,5 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-# Start FrankenPHP server
-CMD ["frankenphp", "run-server"]
+# Start FrankenPHP server using standard configuration
+CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]

@@ -1,0 +1,55 @@
+{
+  "capture_time": "2026-06-18T13:39:56.259827",
+  "url": "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnTIqQvy1S_cHW3y94Ud_N-aE6g8gwd9_B_jDzK6OmYI9LEof6KylorwgIlPARi2ZD885nxx7hnGrGaeqWEd86AABAuvRhgw9h7fJVdSTAOnfnkb-PvuE05bpK3qkzO9gQ48gZQWA3Tt7T_RWWhW1Mbrnhl2dBZdX5NRIbjUhd_vf3MGBlC66YnIyCR4vTscIBrqSANmitHxcEXRNyLVJDHPIThp3YbQXogJgsdo24aF1NTU12-IZbG2jI9eaoQIM7klnlQR_VEiNhHDB8K3btxEcNRiQOBZNvhXH8ii&lib=MjRaUgtr3LpeGvqoTd7D2lWbkSMavoA9a",
+  "method": "GET",
+  "status_code": 200,
+  "query_params": {
+    "user_content_key": "AUkAhnTIqQvy1S_cHW3y94Ud_N-aE6g8gwd9_B_jDzK6OmYI9LEof6KylorwgIlPARi2ZD885nxx7hnGrGaeqWEd86AABAuvRhgw9h7fJVdSTAOnfnkb-PvuE05bpK3qkzO9gQ48gZQWA3Tt7T_RWWhW1Mbrnhl2dBZdX5NRIbjUhd_vf3MGBlC66YnIyCR4vTscIBrqSANmitHxcEXRNyLVJDHPIThp3YbQXogJgsdo24aF1NTU12-IZbG2jI9eaoQIM7klnlQR_VEiNhHDB8K3btxEcNRiQOBZNvhXH8ii",
+    "lib": "MjRaUgtr3LpeGvqoTd7D2lWbkSMavoA9a"
+  },
+  "request_body": "",
+  "response_raw": "{\"records\":[{\"id\":3,\"judul_paket\":\"Latihan CAT 1\",\"deskripsi_paket\":\"Soal SKD\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3898/3898111.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbzdiStCMn1GxC040dDEemZoNK4FPY4BMnNegz0sApvAI1bmbreK5eS2wBK-vEZktmMD6Q/exec?action=read\",\"waktu_menit\":\"100\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"cat\",\"passing_grade\":\"228\",\"mode\":\"static\",\"jenis_soal\":\"tryout\"},{\"id\":1,\"judul_paket\":\"Latihan CAT 2\",\"deskripsi_paket\":\"Soal SKD\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3898/3898111.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbySx57ZChs2C5Vqc5BdMf9Zj_9B46nthi2gvi5YxgoKpDhw0RpMDorqxFEN_jznB3xq5A/exec?action=read\",\"waktu_menit\":\"100\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"cat\",\"passing_grade\":\"228\",\"mode\":\"static\",\"jenis_soal\":\"tryout\"},{\"id\":2,\"judul_paket\":\"Latihan CAT 3\",\"deskripsi_paket\":\"Soal SKD\",\"url_gambar\":\"https://cdn-icons-png.flaticon.com/512/3898/3898111.png\",\"url_service_soal\":\"https://script.google.com/macros/s/AKfycbxNY-TC7EkE5zniFeAZX8ppYnAPXZQImELvhiR13-C1TVfakJDXs7s7h2ejl89VRtwynQ/exec?action=read\",\"waktu_menit\":\"100\",\"mode_soal\":\"skala1_5\",\"mode_point\":\"cat\",\"passing_grade\":\"228\",\"mode\":\"static\",\"jenis_soal\":\"tryout\"}]}",
+  "response_json": {
+    "records": [
+      {
+        "id": 3,
+        "judul_paket": "Latihan CAT 1",
+        "deskripsi_paket": "Soal SKD",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3898/3898111.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbzdiStCMn1GxC040dDEemZoNK4FPY4BMnNegz0sApvAI1bmbreK5eS2wBK-vEZktmMD6Q/exec?action=read",
+        "waktu_menit": "100",
+        "mode_soal": "skala1_5",
+        "mode_point": "cat",
+        "passing_grade": "228",
+        "mode": "static",
+        "jenis_soal": "tryout"
+      },
+      {
+        "id": 1,
+        "judul_paket": "Latihan CAT 2",
+        "deskripsi_paket": "Soal SKD",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3898/3898111.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbySx57ZChs2C5Vqc5BdMf9Zj_9B46nthi2gvi5YxgoKpDhw0RpMDorqxFEN_jznB3xq5A/exec?action=read",
+        "waktu_menit": "100",
+        "mode_soal": "skala1_5",
+        "mode_point": "cat",
+        "passing_grade": "228",
+        "mode": "static",
+        "jenis_soal": "tryout"
+      },
+      {
+        "id": 2,
+        "judul_paket": "Latihan CAT 3",
+        "deskripsi_paket": "Soal SKD",
+        "url_gambar": "https://cdn-icons-png.flaticon.com/512/3898/3898111.png",
+        "url_service_soal": "https://script.google.com/macros/s/AKfycbxNY-TC7EkE5zniFeAZX8ppYnAPXZQImELvhiR13-C1TVfakJDXs7s7h2ejl89VRtwynQ/exec?action=read",
+        "waktu_menit": "100",
+        "mode_soal": "skala1_5",
+        "mode_point": "cat",
+        "passing_grade": "228",
+        "mode": "static",
+        "jenis_soal": "tryout"
+      }
+    ]
+  }
+}
