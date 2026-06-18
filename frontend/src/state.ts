@@ -41,7 +41,11 @@ export interface ExamState {
 export const f7params = {
   name: 'AksaraCAT',
   theme: 'auto',
-  dark: true
+  dark: true,
+  view: {
+    pushState: true,
+    pushStateSeparator: '#'
+  }
 };
 
 // Centralized Reactive State with full TS interface type safety
